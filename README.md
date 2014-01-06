@@ -11,7 +11,7 @@ computer. SurfStack WAMP is a package of open source software that includes:
 
 No installation required. Just extract and run SSWamp.exe.
 
-The latest release is [v1.0.4](bin/SurfStack_WAMP_v1.0.4.zip).
+The current release is v1.0.4 (2014/01/06).
 
 Instructions
 ------------
@@ -82,7 +82,8 @@ Technical Notes
 
 Website Simulation
 ------------------
-To simulate a domain like www.example.com, add the domain name to your system hosts file to view it locally:
+To resolve any domain like www.example.com on your local system, add the domain
+name to your system hosts file:
 
 1. Copy C:\windows\system32\drivers\etc\hosts to your desktop
 2. Open the hosts file in Notepad
