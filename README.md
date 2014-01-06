@@ -11,6 +11,8 @@ computer. SurfStack WAMP is a package of open source software that includes:
 
 No installation required. Just extract and run SSWamp.exe.
 
+The latest release is [v1.0.4](bin/SurfStack_WAMP_v1.0.4.zip).
+
 Instructions
 ------------
 1. Extract the contents to any folder
