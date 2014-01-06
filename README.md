@@ -17,7 +17,7 @@ Instructions
 2. Run SSWamp.exe
 3. Place a check next to each server you want to start
 4. Click Turn On Server(s)
-Test the configuration by clicking Browse Main Page
+5. Test the configuration by clicking Browse Main Page
 
 Popular Application Testing (Drupal, WordPress, SQL Buddy, phpMyAdmin, etc.)
 ----------------------------------------------------------------------------
@@ -27,28 +27,21 @@ Popular Application Testing (Drupal, WordPress, SQL Buddy, phpMyAdmin, etc.)
 4. Run SSWamp.exe
 5. Place a check next to the Apache and MySQL options
 6. Click Turn On Server(s)
-Test the configuration by clicking Browse Main Page
+7. Test the configuration by clicking Browse Main Page
 
 Default MySQL Database Settings
 -------------------------------
-Database Name: test
-Username: root
-Password: (blank)
+- Database Name: test
+- Username: root
+- Password: (blank)
 
 Folders
 -------
-\amp\app - contains binaries for applications
-\amp\config - contains custom configurations for the applications
-\amp\doc - contains CHANGELOG, LICENSE, README
-\amp\src - contains C# source code for SSWamp.exe
-\webroot\localhost\public - default location for all web files 
-
-Files
------
-LICENSE.txt - contains the Apache v2.0 license under which FusionLeaf Studio is licensed
-NOTICE.txt - contains the software aggregated with FusionLeaf Studio
-README.txt - this file
-RELEASE.txt - the version number
+- \amp\app: contains binaries for applications
+- \amp\config: contains custom configurations for the applications
+- \amp\doc: contains CHANGELOG, LICENSE, README
+- \amp\src: contains C# source code for SSWamp.exe
+- \webroot\localhost\public: default location for all web files 
 
 Included Software
 -----------------
@@ -100,7 +93,7 @@ To simulate a domain like www.example.com, add the domain name to your system ho
 9. Run SSWamp.exe
 10. Place a check next to the Apache option
 11. Click Turn On Server(s)
-Test the configuration by opening your web browser to: http://example.com
+12. Test the configuration by opening your web browser to: http://example.com
 
 Quick Solutions
 ---------------
