@@ -19,6 +19,8 @@ No installation required. Just extract and run SSWamp.exe.
 
 The current release is v1.0.5 (2014/01/26).
 
+Screenshots are available in the [Wiki](https://github.com/josephspurrier/surfstack-wamp/wiki/SurfStack-WAMP-Screenshots).
+
 Instructions
 ------------
 1. Extract the contents to any folder
