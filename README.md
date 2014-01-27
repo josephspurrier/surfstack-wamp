@@ -7,7 +7,7 @@ computer. SurfStack WAMP is a package of open source software that includes:
 - MySQL v5.6.15 (Database)
 - MongoDB v2.4.8 (Database)
 - PHP TS and NTS v5.5.7 (Web Language)
-- Memcached v1.2.6 (object caching system)
+- Memcached v1.2.6 (Object Caching System)
 
 One-click setup of popular PHP tools:
 - Composer
