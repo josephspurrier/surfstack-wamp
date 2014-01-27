@@ -2,24 +2,30 @@ SurfStack WAMP
 ==============
 SurfStack WAMP allows HTML websites and PHP applications to run on a Windows
 computer. SurfStack WAMP is a package of open source software that includes:
-- Apache (Web Server)
-- Nginx (Web Server)
-- MySQL (Database)
-- MongoDB (Database)
-- PHP (Web Language)
-- Memcached (object caching system)
+- Apache v2.4.7 (Web Server)
+- Nginx v1.4.4 (Web Server)
+- MySQL v5.6.15 (Database)
+- MongoDB v2.4.8 (Database)
+- PHP TS and NTS v5.5.7 (Web Language)
+- Memcached v1.2.6 (object caching system)
+
+One-click setup of popular PHP tools:
+- Composer
+- PHPUnit
+- PEAR
+- phpDocumentor
 
 No installation required. Just extract and run SSWamp.exe.
 
-The current release is v1.0.4 (2014/01/06).
+The current release is v1.0.5 (2014/01/26).
 
 Instructions
 ------------
 1. Extract the contents to any folder
 2. Run SSWamp.exe
 3. Place a check next to each server you want to start
-4. Click Turn On Server(s)
-5. Test the configuration by clicking Browse Main Page
+4. Click Turn On
+5. Test the configuration by clicking Browse HTTP
 
 Popular Application Testing (Drupal, WordPress, SQL Buddy, phpMyAdmin, etc.)
 ----------------------------------------------------------------------------
@@ -28,8 +34,8 @@ Popular Application Testing (Drupal, WordPress, SQL Buddy, phpMyAdmin, etc.)
 3. Extract the Drupal or WordPress files to the \webroot\localhost\public directory
 4. Run SSWamp.exe
 5. Place a check next to the Apache and MySQL options
-6. Click Turn On Server(s)
-7. Test the configuration by clicking Browse Main Page
+6. Click Turn On
+7. Test the configuration by clicking Browse HTTP
 
 Default MySQL Database Settings
 -------------------------------
@@ -95,7 +101,7 @@ name to your system hosts file:
 8. Close your web browser if open
 9. Run SSWamp.exe
 10. Place a check next to the Apache option
-11. Click Turn On Server(s)
+11. Click Turn On
 12. Test the configuration by opening your web browser to: http://example.com
 
 Quick Solutions
