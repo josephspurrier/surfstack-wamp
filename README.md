@@ -17,7 +17,7 @@ One-click setup of popular PHP tools:
 
 No installation required. Just extract and run SSWamp.exe.
 
-The current release is v1.0.5 (2014/01/26).
+The current release is [v1.0.5](https://github.com/josephspurrier/surfstack-wamp/releases/tag/1.0.5) (2014/01/26).
 
 Screenshots are available in the [Wiki](https://github.com/josephspurrier/surfstack-wamp/wiki/SurfStack-WAMP-Screenshots).
 
