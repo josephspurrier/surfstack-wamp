@@ -1,7 +1,5 @@
 @ECHO OFF
 
-REM SET WEBDIR=C:\Users\Coil\Desktop\Now\Scribblev1.0.4\webroot\localhost\public
-REM SET PHPDIR=C:\Users\Coil\Desktop\Now\Scribblev1.0.4\amp\app\phpts
 SET WEBDIR=#WEBDIR#
 SET PHPDIRTS=#PHPDIRTS#
 SET PHPDIRNTS=#PHPDIRNTS#
