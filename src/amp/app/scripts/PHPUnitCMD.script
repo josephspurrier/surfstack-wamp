@@ -1,0 +1,18 @@
+@ECHO OFF
+
+SET WEBDIR=#WEBDIR#
+SET PHPDIRTS=#PHPDIRTS#
+SET PHPDIRNTS=#PHPDIRNTS#
+SET VENDIR=#WEBDIR#\vendor
+SET PHPUNITDIR=#WEBDIR#\vendor\phpunit\phpunit
+
+SET PHP="%PHPDIRTS%\php.exe"
+SET PHPUNIT="%PHPDIRTS%\phpunit.phar"
+
+CD "%WEBDIR%"
+
+ECHO Usage:
+ECHO %%PHP%% %%PHPUNIT%% --bootstrap "%%VENDIR%%\monolog\monolog\tests\bootstrap.php" "%%VENDIR%%\monolog\monolog\tests\Monolog\Handler\MongoDBHandlerTest.php"
+ECHO.
+
+CMD

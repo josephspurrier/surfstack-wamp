@@ -1,0 +1,17 @@
+@ECHO OFF
+
+SET WEBDIR=#WEBDIR#
+SET PHPDIRTS=#PHPDIRTS#
+SET PHPDIRNTS=#PHPDIRNTS#
+
+SET PHP="%PHPDIRTS%\php.exe"
+SET PHPDOC="%PHPDIRTS%\phpDocumentor.phar"
+SET PATH=%PATH%;C:\Users\Coil\Desktop\Now\Scribblev1.0.4\amp\app\graphviz\bin
+
+CD "%WEBDIR%"
+
+ECHO Usage:
+ECHO %%PHP%% %%PHPDOC%% -d "%%WEBDIR%%\vendor\SurfStack" -t "%%WEBDIR%%\doc"
+ECHO.
+
+CMD

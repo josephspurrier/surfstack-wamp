@@ -1,0 +1,17 @@
+@ECHO OFF
+
+SET PHPDIRTS=#PHPDIRTS#
+SET PHPDIRNTS=#PHPDIRNTS#
+
+ECHO Installing phpDocumentor for PHP TS:
+CD "%PHPDIRTS%"
+IF EXIST phpDocumentor.phar (
+ECHO File already exists.
+PAUSE
+EXIT
+)
+php -r "file_put_contents('phpDocumentor.phar', file_get_contents('http://phpdoc.org/phpDocumentor.phar'));
+
+ECHO.
+ECHO Installation complete
+PAUSE
