@@ -27,13 +27,6 @@ namespace SSWamp
 		protected override string strShutdownProcessPath { get { return ""; } }
 		protected override string strShutdownArguments { get { return "/im httpd.exe"; } }
 		
-		Variables var;
-		
-		public MPApache(Variables v)
-		{
-			var = v;
-		}
-		
 		protected override bool configureApp()
 		{
 			// Need to diable group boxes here
@@ -62,14 +55,15 @@ namespace SSWamp
 			strArgs += var.getString("Apache","numApachePort") + " ";
 			strArgs += var.getString("Apache","numApachePortSSL") + " ";
 			strArgs += "\""+ var.strApacheFolderPath + "\" ";
-			strArgs += var.getString("Apache","txtSourceRoot");
+			strArgs += var.getString("Apache","txtSourceRoot") + " ";
+			strArgs += Path.Combine(var.strRootFolderPath, @"webroot\" + var.getString("Apache","txtDomainName") + @"\" + var.strPublicFolderName);
 			//File.WriteAllText(Path.Combine(strHomeDir,"test.txt"),strArgs);
 			runCmdWait(var.strAWKFilePath,strArgs,var.strAWKFolderPath);
 			
 			//C:/Users/Joe/Desktop/FusionLeaf_Stack_v0.4.9/app/php/php5apache2_2.dll
 			
-			string strGuessRoot = Path.Combine(var.strApacheFolderPath, "htdocs").Replace('\\','/');
-			string strRealRoot = Path.Combine(var.strRootFolderPath, @"webroot\" + var.getString("Apache","txtDomainName") + @"\" + var.strPublicFolderName);
+			//string strGuessRoot = Path.Combine(var.strApacheFolderPath, "htdocs").Replace('\\','/');
+			//string strRealRoot = Path.Combine(var.strRootFolderPath, @"webroot\" + var.getString("Apache","txtDomainName") + @"\" + var.strPublicFolderName);
 			
 			//PHPIniDir "C:/Users/Joe/Desktop/FusionLeaf_Stack_v0.4.9/app/php"
 			
@@ -77,11 +71,11 @@ namespace SSWamp
 			
 			string strApacheConfig = Path.Combine(var.strApacheFolderPath,@"conf\httpd.conf");
 			ArrayList alReplace = new ArrayList();
-			alReplace.Add(new string[]{"#LoadModule rewrite_module", "LoadModule rewrite_module"});
+			//alReplace.Add(new string[]{"#LoadModule rewrite_module", "LoadModule rewrite_module"});
 			alReplace.Add(new string[]{"#%PHPMODULE%", "LoadModule php5_module \""
 			              		+ Path.Combine(var.strPHPTSFolderPath,"php5apache2_4.dll").Replace('\\','/') + "\""});
 			alReplace.Add(new string[]{"#%SSLDLL%", "LoadFile \""+ strSSLDLL +"\""});
-			alReplace.Add(new string[]{strGuessRoot, strRealRoot});
+			//alReplace.Add(new string[]{strGuessRoot, strRealRoot});
 			alReplace.Add(new string[]{"AllowOverride None", "AllowOverride All"});
 			alReplace.Add(new string[]{"#%ERRDOC404%", "ErrorDocument 404 \"404 not found\""});
 			alReplace.Add(new string[]{"#%ERRDOC403%", "ErrorDocument 403 \"403 forbidden\""});
@@ -89,6 +83,25 @@ namespace SSWamp
 			alReplace.Add(new string[]{"DirectoryIndex index.html", "DirectoryIndex index.php index.html"});
 			alReplace.Add(new string[]{"#%PHPADDTYPE%", "AddType application/x-httpd-php .php"});
 			alReplace.Add(new string[]{"#%PHPDIR%", "PHPIniDir \""+ var.strPHPTSFolderPath.Replace('\\','/') +"\""});
+			
+			if (var.getBool("Application","cbUseSSL"))
+			{
+				// Copy the SSL certificates
+				string strSSLPath = Path.Combine(var.strConfigFolderPath, "ssl");
+				if (File.Exists(Path.Combine(strSSLPath, "server.crt")))
+				{
+					File.Copy(Path.Combine(strSSLPath, "server.crt"), Path.Combine(var.strApacheFolderPath,@"conf\server.crt"));				
+				}
+				
+				if (File.Exists(Path.Combine(strSSLPath, "server.key")))
+				{
+					File.Copy(Path.Combine(strSSLPath, "server.key"), Path.Combine(var.strApacheFolderPath,@"conf\server.key"));
+				}
+				
+				alReplace.Add(new string[]{"#LoadModule ssl_module modules/mod_ssl.so", "LoadModule ssl_module modules/mod_ssl.so"});
+				alReplace.Add(new string[]{"#%SSLInclude%", "Include"});
+				
+			}
 			
 			File.WriteAllText(strApacheConfig, var.replaceText(File.ReadAllText(strApacheConfig),alReplace));
 

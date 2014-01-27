@@ -15,7 +15,6 @@ namespace SSWamp
 	/// </summary>
 	public class MPMemcached : MonitoredProcess
 	{
-		Variables var;
 		protected override string strAppName { get { return "Memcached"; } }
 		protected override string strProcessName { get { return "memcached"; } }
 		protected override string strFilePath { get { return var.strMemcachedFilePath; } }
@@ -25,11 +24,6 @@ namespace SSWamp
 		protected override string strShutdownProcessName { get { return "taskkill"; } }
 		protected override string strShutdownProcessPath { get { return ""; } }
 		protected override string strShutdownArguments { get { return "/im memcached.exe"; } }
-		
-		public MPMemcached(Variables v)
-		{
-			var = v;
-		}
 		
 		protected override bool configureApp()
 		{

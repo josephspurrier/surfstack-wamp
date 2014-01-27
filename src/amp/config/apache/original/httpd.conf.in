@@ -401,7 +401,7 @@ Include @rel_sysconfdir@/extra/proxy-html.conf
 </IfModule>
 
 # Secure (SSL/TLS) connections
-#Include @rel_sysconfdir@/extra/httpd-ssl.conf
+#%SSLInclude% @rel_sysconfdir@/extra/httpd-ssl.conf
 #
 # Note: The following must must be present to support
 #       starting without SSL on platforms with no /dev/random equivalent

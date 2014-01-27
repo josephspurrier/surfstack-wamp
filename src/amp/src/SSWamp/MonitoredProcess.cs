@@ -42,6 +42,13 @@ namespace SSWamp
 		
 		abstract protected bool configureApp();
 		
+		protected Variables var;
+		
+		public void attachVar(Variables v)
+		{
+			var = v;
+		}
+		
 		public void attach(Control c)
 		{
 			con = c;
@@ -168,8 +175,18 @@ namespace SSWamp
         {
         	    Process p = new Process();
                 //if (chbHide.Checked) p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                //p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                	//p.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+               	
+                if (var.getBool("Application","cbShowCMD"))
+                {
+                	p.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                }
+                else
+                {
+					p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;                	
+                }
+               	
         	    p.StartInfo.FileName = name;
                 p.StartInfo.WorkingDirectory = folder;
                 p.StartInfo.Arguments = arguments;
@@ -181,7 +198,17 @@ namespace SSWamp
         {
         	    Process p = new Process();
                 //if (chbHide.Checked) p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                
+                if (var.getBool("Application","cbShowCMD"))
+                {
+                	p.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                }
+                else
+                {
+					p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;                	
+                }
+                
+                //p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
         	    p.StartInfo.FileName = name;
                 p.StartInfo.WorkingDirectory = folder;
                 p.StartInfo.Arguments = arguments;

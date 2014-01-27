@@ -1,7 +1,12 @@
+SurfStack WAMP v1.0.5 (2014-01-26)
+----------------------------------
+* Updated SSWamp.exe to support Composer, PHPUnit, PEAR, phpDocumentor
+* Updated SSWamp.exe to support SSL, certificate generation
+
 SurfStack WAMP v1.0.4 (2014-01-06)
 ----------------------------------
 * Changed the name of the package
-* Changed FusionLeaf Studio.exe to SSWamp.exe and wrote entire application
+* Changed FusionLeaf Studio.exe to SSWamp.exe and rewrote entire application
 * Updated to Adminer v3.7.1
 * Updated to Apache v2.4.7
 * Updated to MongoDB v2.4.8

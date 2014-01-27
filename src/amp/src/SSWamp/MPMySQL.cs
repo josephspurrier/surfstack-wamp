@@ -17,7 +17,6 @@ namespace SSWamp
 	/// </summary>
 	public class MPMySQL : MonitoredProcess
 	{
-		Variables var;
 		protected override string strAppName { get { return "MySQL"; } }
 		protected override string strProcessName { get { return "mysqld"; } }
 		protected override string strFilePath { get { return var.strMySQLFilePath; } }
@@ -31,11 +30,6 @@ namespace SSWamp
 		//protected override string strShutdownProcessName { get { return "taskkill"; } }
 		//protected override string strShutdownProcessPath { get { return ""; } }
 		//protected override string strShutdownArguments { get { return "/im mysqld.exe /f"; } }
-		
-		public MPMySQL(Variables v)
-		{
-			var = v;
-		}
 		
 		protected override bool configureApp()
 		{        

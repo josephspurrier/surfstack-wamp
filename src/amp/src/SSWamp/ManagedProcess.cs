@@ -33,6 +33,13 @@ namespace SSWamp
 		private string strFolderPath;
 		private int intPort;
 		
+		protected Variables var;
+		
+		public void attachVar(Variables v)
+		{
+			var = v;
+		}
+		
 		public void start(string FilePath, string Arguments, string FolderPath, int Port)
 		{
 			strFilePath = FilePath;
@@ -120,8 +127,15 @@ namespace SSWamp
         protected int runCmd(string name, string arguments, string folder)
         {
         	    Process p = new Process();
-                //if (chbHide.Checked) p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                if (var.getBool("Application","cbShowCMD"))
+                {
+                	p.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                }
+                else
+                {
+					p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;                	
+                }
+                
         	    p.StartInfo.FileName = name;
                 p.StartInfo.WorkingDirectory = folder;
                 p.StartInfo.Arguments = arguments;

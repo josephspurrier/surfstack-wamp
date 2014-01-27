@@ -24,6 +24,12 @@ namespace SSWamp
 		public string strAMPFolderPath;
 		public string strAppFolderPath;
 		public string strConfigFolderPath;
+		public string strDocsFolderPath;
+		public string strWebLogsFolderPath;
+		public string strLocalhostFolderPath;
+		public string strLocalhostPublicFolderPath;
+		public string strLocalhostPrivateFolderPath;
+		public string strScriptsFolderPath;
 		
 		// PHP
 		public string strPHPTSFolderPath;
@@ -88,6 +94,11 @@ namespace SSWamp
             strAMPFolderPath = Path.Combine(strRootFolderPath, "amp");
             strAppFolderPath = Path.Combine(strAMPFolderPath, "app");
             strConfigFolderPath = Path.Combine(strAMPFolderPath, "config");
+            strDocsFolderPath = Path.Combine(strAMPFolderPath, "doc");
+            strLocalhostFolderPath = Path.Combine(strWebrootFolderPath, "localhost");
+            strLocalhostPublicFolderPath = Path.Combine(strLocalhostFolderPath, "public");
+            strLocalhostPrivateFolderPath = Path.Combine(strLocalhostFolderPath, "private");
+            strScriptsFolderPath = Path.Combine(strAppFolderPath, "scripts");
             
 			// PHP
 			strPHPTSFolderPath = Path.Combine(strAppFolderPath, "phpts");
@@ -177,6 +188,11 @@ namespace SSWamp
 		public string getString(string strSection, string strKey)
 		{
 			return retrieve(strSection, strKey);
+		}
+		
+		public bool getBool(string strSection, string strKey)
+		{
+			return Convert.ToBoolean(retrieveBoolean(strSection, strKey));
 		}
 		
 		public int getInt(string strSection, string strKey)

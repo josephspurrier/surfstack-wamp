@@ -18,7 +18,6 @@ namespace SSWamp
 	/// </summary>
 	public class MPMongoDB : MonitoredProcess
 	{
-		Variables var;
 		protected override string strAppName { get { return "MongoDB"; } }
 		protected override string strProcessName { get { return "mongod"; } }
 		protected override string strFilePath { get { return var.strMongoDBFilePath; } }
@@ -29,11 +28,6 @@ namespace SSWamp
 		protected override string strShutdownProcessName { get { return "mongo"; } }
 		protected override string strShutdownProcessPath { get { return var.strMongoDBFolderPath; } }
 		protected override string strShutdownArguments { get { return "admin --eval db.shutdownServer()"; } }
-		
-		public MPMongoDB(Variables v)
-		{
-			var = v;
-		}
 		
 		protected override bool configureApp()
 		{			

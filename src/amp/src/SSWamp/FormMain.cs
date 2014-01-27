@@ -217,8 +217,8 @@ namespace SSWamp
 		Variables var;
 		
 		// Strings
-		static string strStart = "Turn On Server(s)";
-		static string strStop = "Turn Off Server(s)";
+		static string strStart = "Turn On";
+		static string strStop = "Turn Off";
 		
 		public MainForm()
 		{
@@ -236,7 +236,7 @@ namespace SSWamp
 		{
 			// Set the environment paths
             // This is just used so the developer can specify the root path without moving the compiled EXE every time
-            strRootFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+@"\Now\SurfStack_WAMP_v1.0.4";
+            strRootFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+@"\Now\nothing";
             if (!Directory.Exists(strRootFolderPath)) strRootFolderPath = Directory.GetCurrentDirectory();
             
             versionToolStripMenuItem.Text = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -302,7 +302,8 @@ namespace SSWamp
 
         	if (cbApache.Checked)
         	{
-	            MPApache mp = new MPApache(var);
+	            MPApache mp = new MPApache();
+	            mp.attachVar(var);
 				mp.attach(getColorLabel(cbApache));
 				mp.start();
 				listMP.Add(mp);
@@ -312,12 +313,14 @@ namespace SSWamp
 	    		int phpThreads = var.getInt("PHP","numPHPThreads");
 	    		int phpPort = var.getInt("PHP","numPHPPort");
 	    		
-	    		MPNginx mp = new MPNginx(var);
+	    		MPNginx mp = new MPNginx();
+	    		mp.attachVar(var);
 	    		mp.attach(getColorLabel(cbNginx));
 	    		
 	    		for (int i = phpPort; i < phpPort  +phpThreads ;i++)
 	    		{
 	    			ManagedProcess map = new ManagedProcess();
+	    			map.attachVar(var);
 	    			map.start(var.strPHPNTSCGIFilePath,"-b 127.0.0.1:" + i, var.strPHPNTSFolderPath, i);
 	    			mp.bind(map);
 	    		}
@@ -328,14 +331,16 @@ namespace SSWamp
 
             if (cbMongoDB.Checked)
             {
-	            MPMongoDB mp = new MPMongoDB(var);
+	            MPMongoDB mp = new MPMongoDB();
+	            mp.attachVar(var);
 				mp.attach(getColorLabel(cbMongoDB));
 				mp.start();
 				listMP.Add(mp);
             }        	
             if (cbMySQL.Checked)
             {
-	            MPMySQL mp = new MPMySQL(var);
+	            MPMySQL mp = new MPMySQL();
+	            mp.attachVar(var);
 				mp.attach(getColorLabel(cbMySQL));
 				mp.start();
 				listMP.Add(mp);
@@ -343,7 +348,8 @@ namespace SSWamp
             
             if (cbMemcached.Checked)
             {
-	            MPMemcached mp = new MPMemcached(var);
+	            MPMemcached mp = new MPMemcached();
+	            mp.attachVar(var);
 				mp.attach(getColorLabel(cbMemcached));
 				mp.start();
 				listMP.Add(mp);
@@ -377,6 +383,11 @@ namespace SSWamp
 		private void BtnBrowseMainClick(object sender, EventArgs e)
 		{
 			simpleOpen("http://localhost");
+		}
+		
+		private void BtnBrowseHTTPSClick(object sender, EventArgs e)
+		{
+			simpleOpen("https://localhost");
 		}
 		
         private void simpleOpen(string strProcess)
@@ -435,6 +446,20 @@ namespace SSWamp
         	{
         		MessageBox.Show("Please stop all servers before trying to exit.","Server(s) Running");
         	}
+		}
+		
+		private void forceKill()
+		{
+			// Tell all the applications not to restart
+			killAll();
+			
+			// Kill the applications without respawning
+			Process.Start("taskkill", "/F /IM nginx.exe");
+			Process.Start("taskkill", "/F /IM httpd.exe");
+			Process.Start("taskkill", "/F /IM php-cgi.exe");
+			Process.Start("taskkill", "/F /IM mysqld.exe");
+			Process.Start("taskkill", "/F /IM mongod.exe");
+			Process.Start("taskkill", "/F /IM memcached.exe");
 		}
 		
 		private void killAll()
@@ -544,6 +569,310 @@ namespace SSWamp
 		private void MemcachedToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			simpleOpen(var.strMemcachedFolderPath);
+		}
+		
+		private void WebRootPublicToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			simpleOpen(var.strWebrootFolderPath);
+		}
+		
+		private void AppConfigurationsToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			simpleOpen(var.strConfigFolderPath);
+		}
+		
+		private void DocumentsToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			simpleOpen(var.strDocsFolderPath);
+		}
+		
+		private void SessionsToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			simpleOpen(System.IO.Path.GetTempPath());
+		}
+		
+        private void cmdOpen(string strScript)
+        {
+        	try
+        	{
+    			if (!File.Exists(strScript))
+			    {
+			    	MessageBox.Show("Command Prompt cannot find: " + strScript,"File Missing");
+			    	return;
+			    }
+        		Process.Start("cmd.exe", "/C " + strScript);
+        	}
+        	catch (Exception)
+        	{
+        		MessageBox.Show("Cannot find: " + strScript,"File Missing");
+        	}
+        }
+		
+		void InstallComposerToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			string strScript = Path.Combine(var.strScriptsFolderPath, "ComposerSetup.script");
+			string strBatch = Path.Combine(var.strScriptsFolderPath, "ComposerSetup.cmd");
+			string strContent = File.ReadAllText(strScript);
+			
+			strContent = strContent.Replace("#WEBDIR#", var.strLocalhostPublicFolderPath);
+			strContent = strContent.Replace("#PHPDIRTS#", var.strPHPTSFolderPath);
+			strContent = strContent.Replace("#PHPDIRNTS#", var.strPHPNTSFolderPath);
+			
+			File.WriteAllText(strBatch, strContent);
+			cmdOpen(strBatch);
+		}
+		
+		void InstallDependenciesToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			string strScript = Path.Combine(var.strScriptsFolderPath, "ComposerDepInstall.script");
+			string strBatch = Path.Combine(var.strScriptsFolderPath, "ComposerDepInstall.cmd");
+			string strContent = File.ReadAllText(strScript);
+			
+			strContent = strContent.Replace("#WEBDIR#", var.strLocalhostPublicFolderPath);
+			strContent = strContent.Replace("#PHPDIRTS#", var.strPHPTSFolderPath);
+			strContent = strContent.Replace("#PHPDIRNTS#", var.strPHPNTSFolderPath);
+			
+			File.WriteAllText(strBatch, strContent);
+			cmdOpen(strBatch);
+		}
+		
+		void UpdateDependenciesToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			string strScript = Path.Combine(var.strScriptsFolderPath, "ComposerDepUpdate.script");
+			string strBatch = Path.Combine(var.strScriptsFolderPath, "ComposerDepUpdate.cmd");
+			string strContent = File.ReadAllText(strScript);
+			
+			strContent = strContent.Replace("#WEBDIR#", var.strLocalhostPublicFolderPath);
+			strContent = strContent.Replace("#PHPDIRTS#", var.strPHPTSFolderPath);
+			strContent = strContent.Replace("#PHPDIRNTS#", var.strPHPNTSFolderPath);
+			
+			File.WriteAllText(strBatch, strContent);
+			cmdOpen(strBatch);
+		}
+		
+		void CommandPromptToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			string strScript = Path.Combine(var.strScriptsFolderPath, "ComposerCMD.script");
+			string strBatch = Path.Combine(var.strScriptsFolderPath, "ComposerCMD.cmd");
+			string strContent = File.ReadAllText(strScript);
+			
+			strContent = strContent.Replace("#WEBDIR#", var.strLocalhostPublicFolderPath);
+			strContent = strContent.Replace("#PHPDIRTS#", var.strPHPTSFolderPath);
+			strContent = strContent.Replace("#PHPDIRNTS#", var.strPHPNTSFolderPath);
+			
+			File.WriteAllText(strBatch, strContent);
+			cmdOpen(strBatch);
+		}
+		
+		void RemoveBatchFilesToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			foreach(string file in Directory.GetFiles(var.strScriptsFolderPath))
+			{
+				if (file.EndsWith(".cmd"))
+				{
+					File.Delete(file);
+				}
+			}
+			
+			MessageBox.Show("Removed batch files");
+		}
+		
+		void ViewScriptFilesToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			simpleOpen(var.strScriptsFolderPath);
+		}
+		
+		void PHPUnitCommandPromptToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			string strScript = Path.Combine(var.strScriptsFolderPath, "PHPUnitCMD.script");
+			string strBatch = Path.Combine(var.strScriptsFolderPath, "PHPUnitCMD.cmd");
+			string strContent = File.ReadAllText(strScript);
+			
+			strContent = strContent.Replace("#WEBDIR#", var.strLocalhostPublicFolderPath);
+			strContent = strContent.Replace("#PHPDIRTS#", var.strPHPTSFolderPath);
+			strContent = strContent.Replace("#PHPDIRNTS#", var.strPHPNTSFolderPath);
+			
+			File.WriteAllText(strBatch, strContent);
+			cmdOpen(strBatch);
+		}
+		
+		void InitialPHPUnitSetupToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			string strScript = Path.Combine(var.strScriptsFolderPath, "PHPUnitSetup.script");
+			string strBatch = Path.Combine(var.strScriptsFolderPath, "PHPUnitSetup.cmd");
+			string strContent = File.ReadAllText(strScript);
+			
+			strContent = strContent.Replace("#WEBDIR#", var.strLocalhostPublicFolderPath);
+			strContent = strContent.Replace("#PHPDIRTS#", var.strPHPTSFolderPath);
+			strContent = strContent.Replace("#PHPDIRNTS#", var.strPHPNTSFolderPath);
+			
+			File.WriteAllText(strBatch, strContent);
+			cmdOpen(strBatch);
+		}
+		
+		void GenerateCertificateToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			string strScript = Path.Combine(var.strScriptsFolderPath, "SSLGenerate.script");
+			string strBatch = Path.Combine(var.strScriptsFolderPath, "SSLGenerate.cmd");
+			string strContent = File.ReadAllText(strScript);
+			
+			strContent = strContent.Replace("#APACHEBINDIR#", Path.Combine(var.strApacheFolderPath, "bin"));
+			strContent = strContent.Replace("#CONFDIR#", Path.Combine(var.strConfigFolderPath, "apache"));
+			
+			File.WriteAllText(strBatch, strContent);
+			cmdOpen(strBatch);
+		}
+		
+		void DeleteCertificateToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			foreach(string file in Directory.GetFiles(Path.Combine(var.strConfigFolderPath, "apache")))
+			{
+				if (file.EndsWith(".rnd")
+				   || file.EndsWith(".pem")
+				   || file.EndsWith(".crt")
+				   || file.EndsWith(".csr")
+				   || file.EndsWith(".key")
+				  )
+				{
+					File.Delete(file);
+				}
+			}
+			
+			MessageBox.Show("Removed cert files");
+		}
+		
+		void InitialPearSetupToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			string strScript = Path.Combine(var.strScriptsFolderPath, "PEARSetup.script");
+			string strBatch = Path.Combine(var.strScriptsFolderPath, "PEARSetup.cmd");
+			string strContent = File.ReadAllText(strScript);
+			
+			strContent = strContent.Replace("#WEBDIR#", var.strLocalhostPublicFolderPath);
+			strContent = strContent.Replace("#PHPDIRTS#", var.strPHPTSFolderPath);
+			strContent = strContent.Replace("#PHPDIRNTS#", var.strPHPNTSFolderPath);
+			
+			File.WriteAllText(strBatch, strContent);
+			cmdOpen(strBatch);
+		}
+		
+		void CommandPromptPearToolStripMenuItem1Click(object sender, EventArgs e)
+		{
+			string strScript = Path.Combine(var.strScriptsFolderPath, "PEARCMD.script");
+			string strBatch = Path.Combine(var.strScriptsFolderPath, "PEARCMD.cmd");
+			string strContent = File.ReadAllText(strScript);
+			
+			strContent = strContent.Replace("#WEBDIR#", var.strLocalhostPublicFolderPath);
+			strContent = strContent.Replace("#PHPDIRTS#", var.strPHPTSFolderPath);
+			strContent = strContent.Replace("#PHPDIRNTS#", var.strPHPNTSFolderPath);
+			
+			File.WriteAllText(strBatch, strContent);
+			cmdOpen(strBatch);
+		}
+		
+		private void deleteFiles(string[] strFiles, string strPath)
+		{
+			foreach (string file in strFiles)
+			{
+				if (File.Exists(Path.Combine(strPath, file)))
+				{
+					File.Delete(Path.Combine(strPath, file));
+				}
+			}
+		}
+		
+		private void deleteFolders(string[] strDirs, string strPath)
+		{
+			foreach (string dir in strDirs)
+			{
+				if (Directory.Exists(Path.Combine(strPath, dir)))
+				{
+					Directory.Delete(Path.Combine(strPath, dir), true);
+				}
+			}
+		}
+		
+		void UninstallPearToolStripMenuItemClick(object sender, EventArgs e)
+		{
+				string[] strDirs = new string[] {
+					"cfg",
+					"date",
+					"docs",
+					"pear",
+					"tests",
+					"tmp",
+					"www"
+				};
+				
+				deleteFolders(strDirs, var.strPHPTSFolderPath);
+				
+				string[] strFiles = new String[] {
+					"go-pear.phar",
+					"pear.bat",
+					"peardev.bat",
+					"pecl.bat",
+				};
+				
+				deleteFiles(strFiles, var.strPHPTSFolderPath);
+			
+			MessageBox.Show("Deleted PEAR");
+		}
+		
+		void UninstallPHPUnitToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			string[] strFiles = new String[] {
+				"phpunit.phar"
+			};
+				
+			deleteFiles(strFiles, var.strPHPTSFolderPath);
+			
+			MessageBox.Show("Deleted PHPUnit");
+		}
+		
+		void UninstallComposerToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			string[] strFiles = new String[] {
+				"composer.phar",
+				"composer.bat"
+			};
+				
+			deleteFiles(strFiles, var.strPHPTSFolderPath);
+			
+			MessageBox.Show("Deleted Composer");
+		}
+		
+		void InitialSetupPHPDocumentorToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			string strScript = Path.Combine(var.strScriptsFolderPath, "PHPDocumentorSetup.script");
+			string strBatch = Path.Combine(var.strScriptsFolderPath, "PHPDocumentorSetup.cmd");
+			string strContent = File.ReadAllText(strScript);
+			
+			strContent = strContent.Replace("#WEBDIR#", var.strLocalhostPublicFolderPath);
+			strContent = strContent.Replace("#PHPDIRTS#", var.strPHPTSFolderPath);
+			strContent = strContent.Replace("#PHPDIRNTS#", var.strPHPNTSFolderPath);
+			
+			File.WriteAllText(strBatch, strContent);
+			cmdOpen(strBatch);
+		}
+		
+		void CommandPromptPhpDocumentorToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			string strScript = Path.Combine(var.strScriptsFolderPath, "PHPDocumentorCMD.script");
+			string strBatch = Path.Combine(var.strScriptsFolderPath, "PHPDocumentorCMD.cmd");
+			string strContent = File.ReadAllText(strScript);
+			
+			strContent = strContent.Replace("#WEBDIR#", var.strLocalhostPublicFolderPath);
+			strContent = strContent.Replace("#PHPDIRTS#", var.strPHPTSFolderPath);
+			strContent = strContent.Replace("#PHPDIRNTS#", var.strPHPNTSFolderPath);
+			
+			File.WriteAllText(strBatch, strContent);
+			cmdOpen(strBatch);
+		}
+		
+		void ForceKillApplicationsToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			forceKill();
+			
+			MessageBox.Show("All applications forcefully terminated");
 		}
 	}
 }

@@ -39,6 +39,9 @@ namespace SSWamp
 			this.btnSave = new System.Windows.Forms.Button();
 			this.btnRestoreDefaults = new System.Windows.Forms.Button();
 			this.tpGeneral = new System.Windows.Forms.TabPage();
+			this.gbApplication = new System.Windows.Forms.GroupBox();
+			this.cbUseSSL = new System.Windows.Forms.CheckBox();
+			this.cbShowCMD = new System.Windows.Forms.CheckBox();
 			this.gbMongoDB = new System.Windows.Forms.GroupBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.txtMongoDBArgs = new System.Windows.Forms.TextBox();
@@ -55,6 +58,8 @@ namespace SSWamp
 			this.label2 = new System.Windows.Forms.Label();
 			this.numPHPThreads = new System.Windows.Forms.NumericUpDown();
 			this.gbNginx = new System.Windows.Forms.GroupBox();
+			this.numNginxSSLPort = new System.Windows.Forms.NumericUpDown();
+			this.label5 = new System.Windows.Forms.Label();
 			this.numNginxPort = new System.Windows.Forms.NumericUpDown();
 			this.label8 = new System.Windows.Forms.Label();
 			this.gbMySQL = new System.Windows.Forms.GroupBox();
@@ -78,6 +83,7 @@ namespace SSWamp
 			this.txtServerAdmin = new System.Windows.Forms.TextBox();
 			this.tabController = new System.Windows.Forms.TabControl();
 			this.tpGeneral.SuspendLayout();
+			this.gbApplication.SuspendLayout();
 			this.gbMongoDB.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numMongoDBPort)).BeginInit();
 			this.gbMemcached.SuspendLayout();
@@ -87,6 +93,7 @@ namespace SSWamp
 			((System.ComponentModel.ISupportInitialize)(this.numPHPRequests)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numPHPThreads)).BeginInit();
 			this.gbNginx.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numNginxSSLPort)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numNginxPort)).BeginInit();
 			this.gbMySQL.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numMySQLPort)).BeginInit();
@@ -120,6 +127,7 @@ namespace SSWamp
 			// 
 			// tpGeneral
 			// 
+			this.tpGeneral.Controls.Add(this.gbApplication);
 			this.tpGeneral.Controls.Add(this.gbMongoDB);
 			this.tpGeneral.Controls.Add(this.gbMemcached);
 			this.tpGeneral.Controls.Add(this.gbPHP);
@@ -128,10 +136,39 @@ namespace SSWamp
 			this.tpGeneral.Location = new System.Drawing.Point(4, 22);
 			this.tpGeneral.Name = "tpGeneral";
 			this.tpGeneral.Padding = new System.Windows.Forms.Padding(3);
-			this.tpGeneral.Size = new System.Drawing.Size(447, 208);
+			this.tpGeneral.Size = new System.Drawing.Size(447, 240);
 			this.tpGeneral.TabIndex = 2;
 			this.tpGeneral.Text = "General";
 			this.tpGeneral.UseVisualStyleBackColor = true;
+			// 
+			// gbApplication
+			// 
+			this.gbApplication.Controls.Add(this.cbUseSSL);
+			this.gbApplication.Controls.Add(this.cbShowCMD);
+			this.gbApplication.Location = new System.Drawing.Point(6, 157);
+			this.gbApplication.Name = "gbApplication";
+			this.gbApplication.Size = new System.Drawing.Size(208, 77);
+			this.gbApplication.TabIndex = 14;
+			this.gbApplication.TabStop = false;
+			this.gbApplication.Text = "Application";
+			// 
+			// cbUseSSL
+			// 
+			this.cbUseSSL.Location = new System.Drawing.Point(6, 47);
+			this.cbUseSSL.Name = "cbUseSSL";
+			this.cbUseSSL.Size = new System.Drawing.Size(183, 24);
+			this.cbUseSSL.TabIndex = 1;
+			this.cbUseSSL.Text = "Enable SSL";
+			this.cbUseSSL.UseVisualStyleBackColor = true;
+			// 
+			// cbShowCMD
+			// 
+			this.cbShowCMD.Location = new System.Drawing.Point(6, 19);
+			this.cbShowCMD.Name = "cbShowCMD";
+			this.cbShowCMD.Size = new System.Drawing.Size(196, 24);
+			this.cbShowCMD.TabIndex = 0;
+			this.cbShowCMD.Text = "Show Command Prompt Windows";
+			this.cbShowCMD.UseVisualStyleBackColor = true;
 			// 
 			// gbMongoDB
 			// 
@@ -159,7 +196,7 @@ namespace SSWamp
 			// 
 			this.txtMongoDBArgs.Location = new System.Drawing.Point(41, 41);
 			this.txtMongoDBArgs.Name = "txtMongoDBArgs";
-			this.txtMongoDBArgs.Size = new System.Drawing.Size(161, 20);
+			this.txtMongoDBArgs.Size = new System.Drawing.Size(174, 20);
 			this.txtMongoDBArgs.TabIndex = 15;
 			// 
 			// numMongoDBPort
@@ -176,7 +213,7 @@ namespace SSWamp
 									0,
 									0});
 			this.numMongoDBPort.Name = "numMongoDBPort";
-			this.numMongoDBPort.Size = new System.Drawing.Size(161, 20);
+			this.numMongoDBPort.Size = new System.Drawing.Size(174, 20);
 			this.numMongoDBPort.TabIndex = 14;
 			this.numMongoDBPort.Value = new decimal(new int[] {
 									27017,
@@ -345,18 +382,51 @@ namespace SSWamp
 			// 
 			// gbNginx
 			// 
+			this.gbNginx.Controls.Add(this.numNginxSSLPort);
+			this.gbNginx.Controls.Add(this.label5);
 			this.gbNginx.Controls.Add(this.numNginxPort);
 			this.gbNginx.Controls.Add(this.label8);
-			this.gbNginx.Location = new System.Drawing.Point(6, 107);
+			this.gbNginx.Location = new System.Drawing.Point(220, 132);
 			this.gbNginx.Name = "gbNginx";
-			this.gbNginx.Size = new System.Drawing.Size(208, 41);
+			this.gbNginx.Size = new System.Drawing.Size(221, 66);
 			this.gbNginx.TabIndex = 9;
 			this.gbNginx.TabStop = false;
 			this.gbNginx.Text = "Nginx";
 			// 
+			// numNginxSSLPort
+			// 
+			this.numNginxSSLPort.Location = new System.Drawing.Point(80, 40);
+			this.numNginxSSLPort.Maximum = new decimal(new int[] {
+									65535,
+									0,
+									0,
+									0});
+			this.numNginxSSLPort.Minimum = new decimal(new int[] {
+									1,
+									0,
+									0,
+									0});
+			this.numNginxSSLPort.Name = "numNginxSSLPort";
+			this.numNginxSSLPort.Size = new System.Drawing.Size(135, 20);
+			this.numNginxSSLPort.TabIndex = 18;
+			this.numNginxSSLPort.Value = new decimal(new int[] {
+									443,
+									0,
+									0,
+									0});
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(6, 42);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(68, 13);
+			this.label5.TabIndex = 17;
+			this.label5.Text = "HTTPS Port:";
+			// 
 			// numNginxPort
 			// 
-			this.numNginxPort.Location = new System.Drawing.Point(41, 14);
+			this.numNginxPort.Location = new System.Drawing.Point(80, 14);
 			this.numNginxPort.Maximum = new decimal(new int[] {
 									65535,
 									0,
@@ -368,7 +438,7 @@ namespace SSWamp
 									0,
 									0});
 			this.numNginxPort.Name = "numNginxPort";
-			this.numNginxPort.Size = new System.Drawing.Size(161, 20);
+			this.numNginxPort.Size = new System.Drawing.Size(135, 20);
 			this.numNginxPort.TabIndex = 16;
 			this.numNginxPort.Value = new decimal(new int[] {
 									80,
@@ -381,15 +451,15 @@ namespace SSWamp
 			this.label8.AutoSize = true;
 			this.label8.Location = new System.Drawing.Point(6, 16);
 			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(29, 13);
+			this.label8.Size = new System.Drawing.Size(61, 13);
 			this.label8.TabIndex = 15;
-			this.label8.Text = "Port:";
+			this.label8.Text = "HTTP Port:";
 			// 
 			// gbMySQL
 			// 
 			this.gbMySQL.Controls.Add(this.numMySQLPort);
 			this.gbMySQL.Controls.Add(this.label7);
-			this.gbMySQL.Location = new System.Drawing.Point(6, 154);
+			this.gbMySQL.Location = new System.Drawing.Point(6, 107);
 			this.gbMySQL.Name = "gbMySQL";
 			this.gbMySQL.Size = new System.Drawing.Size(208, 44);
 			this.gbMySQL.TabIndex = 11;
@@ -433,7 +503,7 @@ namespace SSWamp
 			this.tpApache.Location = new System.Drawing.Point(4, 22);
 			this.tpApache.Name = "tpApache";
 			this.tpApache.Padding = new System.Windows.Forms.Padding(3);
-			this.tpApache.Size = new System.Drawing.Size(447, 208);
+			this.tpApache.Size = new System.Drawing.Size(447, 240);
 			this.tpApache.TabIndex = 1;
 			this.tpApache.Text = "Apache";
 			this.tpApache.UseVisualStyleBackColor = true;
@@ -456,7 +526,7 @@ namespace SSWamp
 			this.gbApache.Controls.Add(this.txtServerAdmin);
 			this.gbApache.Location = new System.Drawing.Point(6, 6);
 			this.gbApache.Name = "gbApache";
-			this.gbApache.Size = new System.Drawing.Size(432, 196);
+			this.gbApache.Size = new System.Drawing.Size(432, 199);
 			this.gbApache.TabIndex = 26;
 			this.gbApache.TabStop = false;
 			this.gbApache.Text = "Apache";
@@ -622,14 +692,14 @@ namespace SSWamp
 			this.tabController.Location = new System.Drawing.Point(12, 12);
 			this.tabController.Name = "tabController";
 			this.tabController.SelectedIndex = 0;
-			this.tabController.Size = new System.Drawing.Size(455, 234);
+			this.tabController.Size = new System.Drawing.Size(455, 266);
 			this.tabController.TabIndex = 0;
 			// 
 			// FormSettings
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(479, 258);
+			this.ClientSize = new System.Drawing.Size(479, 290);
 			this.Controls.Add(this.btnRestoreDefaults);
 			this.Controls.Add(this.btnSave);
 			this.Controls.Add(this.tabController);
@@ -640,6 +710,7 @@ namespace SSWamp
 			this.Text = "Settings";
 			this.Load += new System.EventHandler(this.FormSettingsLoad);
 			this.tpGeneral.ResumeLayout(false);
+			this.gbApplication.ResumeLayout(false);
 			this.gbMongoDB.ResumeLayout(false);
 			this.gbMongoDB.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numMongoDBPort)).EndInit();
@@ -653,6 +724,7 @@ namespace SSWamp
 			((System.ComponentModel.ISupportInitialize)(this.numPHPThreads)).EndInit();
 			this.gbNginx.ResumeLayout(false);
 			this.gbNginx.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numNginxSSLPort)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numNginxPort)).EndInit();
 			this.gbMySQL.ResumeLayout(false);
 			this.gbMySQL.PerformLayout();
@@ -666,6 +738,11 @@ namespace SSWamp
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.CheckBox cbShowCMD;
+		private System.Windows.Forms.CheckBox cbUseSSL;
+		private System.Windows.Forms.GroupBox gbApplication;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.NumericUpDown numNginxSSLPort;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.NumericUpDown numMongoDBPort;
 		private System.Windows.Forms.TextBox txtMongoDBArgs;

@@ -17,7 +17,6 @@ namespace SSWamp
 	/// </summary>
 	public class MPNginx : MonitoredProcess
 	{
-		Variables var;
 		protected override string strAppName { get { return "Nginx"; } }
 		protected override string strProcessName { get { return "nginx"; } }
 		protected override string strFilePath { get { return var.strNginxFilePath; } }
@@ -28,11 +27,6 @@ namespace SSWamp
 		protected override string strShutdownProcessPath { get { return var.strNginxFolderPath; } }
 		protected override string strShutdownArguments { get { return "-s stop"; } }
 		
-		public MPNginx(Variables v)
-		{
-			var = v;
-		}
-		
 		protected override bool configureApp()
 		{    		
     		int phpThreads = var.getInt("PHP","numPHPThreads");
@@ -42,6 +36,16 @@ namespace SSWamp
 			alReplace.Add(new string[]{"%WEBROOT%", var.strWebrootFolderPath.Replace(@"\","/")});
 			alReplace.Add(new string[]{"%WEBPORT%", var.getString("Nginx","numNginxPort")});
 			alReplace.Add(new string[]{"%THREADS%", buildFarm(phpThreads, phpPort)});
+			
+			//alReplace.Add(new string[]{"%SSLPORT%", var.getString("Nginx","numNginxSSLPort")});
+			alReplace.Add(new string[]{"%SSLPATH%", Path.Combine(var.strConfigFolderPath, "ssl").Replace(@"\","/")});
+			
+			if (var.getBool("Application","cbUseSSL"))
+			{
+				alReplace.Add(new string[]{"#listen 443 ssl", "listen " + var.getString("Apache","numApachePortSSL") + " ssl"});
+				alReplace.Add(new string[]{"#ssl_certificate", "ssl_certificate"});
+				alReplace.Add(new string[]{"#ssl_certificate_key", "ssl_certificate_key"});
+			}
 			
 			File.WriteAllText(var.strNginxConfigFilePath, var.replaceText(File.ReadAllText(var.strNginxTemplateConfigFilePath),alReplace));
 

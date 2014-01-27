@@ -72,13 +72,41 @@ namespace SSWamp
 			this.nginxToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.cacheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.memcachedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.appConfigurationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.documentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.sessionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.webRootPublicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.composerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.installComposerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.installDependenciesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.updateDependenciesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.commandPromptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.uninstallComposerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.pHPUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.initialPHPUnitSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.pHPUnitCommandPromptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.uninstallPHPUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.pEARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.initialPearSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.commandPromptPearToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.uninstallPearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.phpDocumentorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.initialSetupPHPDocumentorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.commandPromptPhpDocumentorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.sSLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.generateCertificateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.deleteCertificateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.viewScriptFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.removeBatchFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.versionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.copyrightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.licensedUnderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.surfStackWebsiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.btnBrowseMain = new System.Windows.Forms.Button();
+			this.btnBrowseHTTP = new System.Windows.Forms.Button();
 			this.gbStatus = new System.Windows.Forms.GroupBox();
 			this.cbMongoDB = new System.Windows.Forms.CheckBox();
 			this.cMongoDB = new System.Windows.Forms.Label();
@@ -90,6 +118,9 @@ namespace SSWamp
 			this.cbMySQL = new System.Windows.Forms.CheckBox();
 			this.cMemcached = new System.Windows.Forms.Label();
 			this.cMySQL = new System.Windows.Forms.Label();
+			this.btnBrowseHTTPS = new System.Windows.Forms.Button();
+			this.forceKillApplicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.msTop.SuspendLayout();
 			this.gbStatus.SuspendLayout();
 			this.SuspendLayout();
@@ -99,18 +130,18 @@ namespace SSWamp
 			this.btnStartStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.btnStartStop.Location = new System.Drawing.Point(12, 139);
 			this.btnStartStop.Name = "btnStartStop";
-			this.btnStartStop.Size = new System.Drawing.Size(131, 23);
+			this.btnStartStop.Size = new System.Drawing.Size(98, 23);
 			this.btnStartStop.TabIndex = 0;
-			this.btnStartStop.Text = "Turn On Server(s)";
+			this.btnStartStop.Text = "Turn On";
 			this.btnStartStop.UseVisualStyleBackColor = true;
 			this.btnStartStop.Click += new System.EventHandler(this.BtnStartStopClick);
 			// 
 			// btnExit
 			// 
 			this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.btnExit.Location = new System.Drawing.Point(288, 139);
+			this.btnExit.Location = new System.Drawing.Point(321, 139);
 			this.btnExit.Name = "btnExit";
-			this.btnExit.Size = new System.Drawing.Size(131, 23);
+			this.btnExit.Size = new System.Drawing.Size(98, 23);
 			this.btnExit.TabIndex = 3;
 			this.btnExit.Text = "Exit";
 			this.btnExit.UseVisualStyleBackColor = true;
@@ -123,6 +154,7 @@ namespace SSWamp
 									this.viewToolStripMenuItem,
 									this.exploreToolStripMenuItem,
 									this.settingsToolStripMenuItem,
+									this.toolsToolStripMenuItem,
 									this.aboutToolStripMenuItem});
 			this.msTop.Location = new System.Drawing.Point(0, 0);
 			this.msTop.Name = "msTop";
@@ -295,7 +327,11 @@ namespace SSWamp
 									this.databaseToolStripMenuItem2,
 									this.languageToolStripMenuItem2,
 									this.webToolStripMenuItem2,
-									this.cacheToolStripMenuItem});
+									this.cacheToolStripMenuItem,
+									this.appConfigurationsToolStripMenuItem,
+									this.documentsToolStripMenuItem,
+									this.sessionsToolStripMenuItem,
+									this.webRootPublicToolStripMenuItem});
 			this.exploreToolStripMenuItem.Name = "exploreToolStripMenuItem";
 			this.exploreToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
 			this.exploreToolStripMenuItem.Text = "Explore";
@@ -304,7 +340,7 @@ namespace SSWamp
 			// 
 			this.openParentFolderToolStripMenuItem.Enabled = false;
 			this.openParentFolderToolStripMenuItem.Name = "openParentFolderToolStripMenuItem";
-			this.openParentFolderToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+			this.openParentFolderToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
 			this.openParentFolderToolStripMenuItem.Text = "Folder Location";
 			// 
 			// databaseToolStripMenuItem2
@@ -313,7 +349,7 @@ namespace SSWamp
 									this.mySQLToolStripMenuItem2,
 									this.mongoDBToolStripMenuItem});
 			this.databaseToolStripMenuItem2.Name = "databaseToolStripMenuItem2";
-			this.databaseToolStripMenuItem2.Size = new System.Drawing.Size(156, 22);
+			this.databaseToolStripMenuItem2.Size = new System.Drawing.Size(178, 22);
 			this.databaseToolStripMenuItem2.Text = "Database";
 			// 
 			// mySQLToolStripMenuItem2
@@ -336,7 +372,7 @@ namespace SSWamp
 									this.pHPTSApacheToolStripMenuItem2,
 									this.pHPNTSNginxToolStripMenuItem2});
 			this.languageToolStripMenuItem2.Name = "languageToolStripMenuItem2";
-			this.languageToolStripMenuItem2.Size = new System.Drawing.Size(156, 22);
+			this.languageToolStripMenuItem2.Size = new System.Drawing.Size(178, 22);
 			this.languageToolStripMenuItem2.Text = "Language";
 			// 
 			// pHPTSApacheToolStripMenuItem2
@@ -359,7 +395,7 @@ namespace SSWamp
 									this.apacheToolStripMenuItem2,
 									this.nginxToolStripMenuItem2});
 			this.webToolStripMenuItem2.Name = "webToolStripMenuItem2";
-			this.webToolStripMenuItem2.Size = new System.Drawing.Size(156, 22);
+			this.webToolStripMenuItem2.Size = new System.Drawing.Size(178, 22);
 			this.webToolStripMenuItem2.Text = "Web";
 			// 
 			// apacheToolStripMenuItem2
@@ -381,7 +417,7 @@ namespace SSWamp
 			this.cacheToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.memcachedToolStripMenuItem});
 			this.cacheToolStripMenuItem.Name = "cacheToolStripMenuItem";
-			this.cacheToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+			this.cacheToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
 			this.cacheToolStripMenuItem.Text = "Cache";
 			// 
 			// memcachedToolStripMenuItem
@@ -391,12 +427,231 @@ namespace SSWamp
 			this.memcachedToolStripMenuItem.Text = "Memcached";
 			this.memcachedToolStripMenuItem.Click += new System.EventHandler(this.MemcachedToolStripMenuItemClick);
 			// 
+			// appConfigurationsToolStripMenuItem
+			// 
+			this.appConfigurationsToolStripMenuItem.Name = "appConfigurationsToolStripMenuItem";
+			this.appConfigurationsToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+			this.appConfigurationsToolStripMenuItem.Text = "App Configurations";
+			this.appConfigurationsToolStripMenuItem.Click += new System.EventHandler(this.AppConfigurationsToolStripMenuItemClick);
+			// 
+			// documentsToolStripMenuItem
+			// 
+			this.documentsToolStripMenuItem.Name = "documentsToolStripMenuItem";
+			this.documentsToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+			this.documentsToolStripMenuItem.Text = "Documents";
+			this.documentsToolStripMenuItem.Click += new System.EventHandler(this.DocumentsToolStripMenuItemClick);
+			// 
+			// sessionsToolStripMenuItem
+			// 
+			this.sessionsToolStripMenuItem.Name = "sessionsToolStripMenuItem";
+			this.sessionsToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+			this.sessionsToolStripMenuItem.Text = "Sessions";
+			this.sessionsToolStripMenuItem.Click += new System.EventHandler(this.SessionsToolStripMenuItemClick);
+			// 
+			// webRootPublicToolStripMenuItem
+			// 
+			this.webRootPublicToolStripMenuItem.Name = "webRootPublicToolStripMenuItem";
+			this.webRootPublicToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+			this.webRootPublicToolStripMenuItem.Text = "Web Root";
+			this.webRootPublicToolStripMenuItem.Click += new System.EventHandler(this.WebRootPublicToolStripMenuItemClick);
+			// 
 			// settingsToolStripMenuItem
 			// 
 			this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
 			this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
 			this.settingsToolStripMenuItem.Text = "Settings";
 			this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItemClick);
+			// 
+			// toolsToolStripMenuItem
+			// 
+			this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.composerToolStripMenuItem,
+									this.pHPUnitToolStripMenuItem,
+									this.pEARToolStripMenuItem,
+									this.phpDocumentorToolStripMenuItem,
+									this.sSLToolStripMenuItem,
+									this.toolStripSeparator1,
+									this.viewScriptFilesToolStripMenuItem,
+									this.removeBatchFilesToolStripMenuItem,
+									this.toolStripSeparator2,
+									this.forceKillApplicationsToolStripMenuItem});
+			this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+			this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+			this.toolsToolStripMenuItem.Text = "Tools";
+			// 
+			// composerToolStripMenuItem
+			// 
+			this.composerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.installComposerToolStripMenuItem,
+									this.installDependenciesToolStripMenuItem,
+									this.updateDependenciesToolStripMenuItem,
+									this.commandPromptToolStripMenuItem,
+									this.uninstallComposerToolStripMenuItem});
+			this.composerToolStripMenuItem.Name = "composerToolStripMenuItem";
+			this.composerToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+			this.composerToolStripMenuItem.Text = "Composer";
+			// 
+			// installComposerToolStripMenuItem
+			// 
+			this.installComposerToolStripMenuItem.Name = "installComposerToolStripMenuItem";
+			this.installComposerToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+			this.installComposerToolStripMenuItem.Text = "Initial Setup";
+			this.installComposerToolStripMenuItem.Click += new System.EventHandler(this.InstallComposerToolStripMenuItemClick);
+			// 
+			// installDependenciesToolStripMenuItem
+			// 
+			this.installDependenciesToolStripMenuItem.Name = "installDependenciesToolStripMenuItem";
+			this.installDependenciesToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+			this.installDependenciesToolStripMenuItem.Text = "Install Dependencies";
+			this.installDependenciesToolStripMenuItem.Click += new System.EventHandler(this.InstallDependenciesToolStripMenuItemClick);
+			// 
+			// updateDependenciesToolStripMenuItem
+			// 
+			this.updateDependenciesToolStripMenuItem.Name = "updateDependenciesToolStripMenuItem";
+			this.updateDependenciesToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+			this.updateDependenciesToolStripMenuItem.Text = "Update Dependencies";
+			this.updateDependenciesToolStripMenuItem.Click += new System.EventHandler(this.UpdateDependenciesToolStripMenuItemClick);
+			// 
+			// commandPromptToolStripMenuItem
+			// 
+			this.commandPromptToolStripMenuItem.Name = "commandPromptToolStripMenuItem";
+			this.commandPromptToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+			this.commandPromptToolStripMenuItem.Text = "Command Prompt";
+			this.commandPromptToolStripMenuItem.Click += new System.EventHandler(this.CommandPromptToolStripMenuItemClick);
+			// 
+			// uninstallComposerToolStripMenuItem
+			// 
+			this.uninstallComposerToolStripMenuItem.Name = "uninstallComposerToolStripMenuItem";
+			this.uninstallComposerToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+			this.uninstallComposerToolStripMenuItem.Text = "Uninstall";
+			this.uninstallComposerToolStripMenuItem.Click += new System.EventHandler(this.UninstallComposerToolStripMenuItemClick);
+			// 
+			// pHPUnitToolStripMenuItem
+			// 
+			this.pHPUnitToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.initialPHPUnitSetupToolStripMenuItem,
+									this.pHPUnitCommandPromptToolStripMenuItem,
+									this.uninstallPHPUnitToolStripMenuItem});
+			this.pHPUnitToolStripMenuItem.Name = "pHPUnitToolStripMenuItem";
+			this.pHPUnitToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+			this.pHPUnitToolStripMenuItem.Text = "PHPUnit";
+			// 
+			// initialPHPUnitSetupToolStripMenuItem
+			// 
+			this.initialPHPUnitSetupToolStripMenuItem.Name = "initialPHPUnitSetupToolStripMenuItem";
+			this.initialPHPUnitSetupToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+			this.initialPHPUnitSetupToolStripMenuItem.Text = "Initial Setup";
+			this.initialPHPUnitSetupToolStripMenuItem.Click += new System.EventHandler(this.InitialPHPUnitSetupToolStripMenuItemClick);
+			// 
+			// pHPUnitCommandPromptToolStripMenuItem
+			// 
+			this.pHPUnitCommandPromptToolStripMenuItem.Name = "pHPUnitCommandPromptToolStripMenuItem";
+			this.pHPUnitCommandPromptToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+			this.pHPUnitCommandPromptToolStripMenuItem.Text = "Command Prompt";
+			this.pHPUnitCommandPromptToolStripMenuItem.Click += new System.EventHandler(this.PHPUnitCommandPromptToolStripMenuItemClick);
+			// 
+			// uninstallPHPUnitToolStripMenuItem
+			// 
+			this.uninstallPHPUnitToolStripMenuItem.Name = "uninstallPHPUnitToolStripMenuItem";
+			this.uninstallPHPUnitToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+			this.uninstallPHPUnitToolStripMenuItem.Text = "Uninstall";
+			this.uninstallPHPUnitToolStripMenuItem.Click += new System.EventHandler(this.UninstallPHPUnitToolStripMenuItemClick);
+			// 
+			// pEARToolStripMenuItem
+			// 
+			this.pEARToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.initialPearSetupToolStripMenuItem,
+									this.commandPromptPearToolStripMenuItem1,
+									this.uninstallPearToolStripMenuItem});
+			this.pEARToolStripMenuItem.Name = "pEARToolStripMenuItem";
+			this.pEARToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+			this.pEARToolStripMenuItem.Text = "PEAR";
+			// 
+			// initialPearSetupToolStripMenuItem
+			// 
+			this.initialPearSetupToolStripMenuItem.Name = "initialPearSetupToolStripMenuItem";
+			this.initialPearSetupToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+			this.initialPearSetupToolStripMenuItem.Text = "Initial Setup";
+			this.initialPearSetupToolStripMenuItem.Click += new System.EventHandler(this.InitialPearSetupToolStripMenuItemClick);
+			// 
+			// commandPromptPearToolStripMenuItem1
+			// 
+			this.commandPromptPearToolStripMenuItem1.Name = "commandPromptPearToolStripMenuItem1";
+			this.commandPromptPearToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
+			this.commandPromptPearToolStripMenuItem1.Text = "Command Prompt";
+			this.commandPromptPearToolStripMenuItem1.Click += new System.EventHandler(this.CommandPromptPearToolStripMenuItem1Click);
+			// 
+			// uninstallPearToolStripMenuItem
+			// 
+			this.uninstallPearToolStripMenuItem.Name = "uninstallPearToolStripMenuItem";
+			this.uninstallPearToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+			this.uninstallPearToolStripMenuItem.Text = "Uninstall";
+			this.uninstallPearToolStripMenuItem.Click += new System.EventHandler(this.UninstallPearToolStripMenuItemClick);
+			// 
+			// phpDocumentorToolStripMenuItem
+			// 
+			this.phpDocumentorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.initialSetupPHPDocumentorToolStripMenuItem,
+									this.commandPromptPhpDocumentorToolStripMenuItem});
+			this.phpDocumentorToolStripMenuItem.Name = "phpDocumentorToolStripMenuItem";
+			this.phpDocumentorToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+			this.phpDocumentorToolStripMenuItem.Text = "phpDocumentor";
+			// 
+			// initialSetupPHPDocumentorToolStripMenuItem
+			// 
+			this.initialSetupPHPDocumentorToolStripMenuItem.Name = "initialSetupPHPDocumentorToolStripMenuItem";
+			this.initialSetupPHPDocumentorToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+			this.initialSetupPHPDocumentorToolStripMenuItem.Text = "Initial Setup";
+			this.initialSetupPHPDocumentorToolStripMenuItem.Click += new System.EventHandler(this.InitialSetupPHPDocumentorToolStripMenuItemClick);
+			// 
+			// commandPromptPhpDocumentorToolStripMenuItem
+			// 
+			this.commandPromptPhpDocumentorToolStripMenuItem.Name = "commandPromptPhpDocumentorToolStripMenuItem";
+			this.commandPromptPhpDocumentorToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+			this.commandPromptPhpDocumentorToolStripMenuItem.Text = "Command Prompt";
+			this.commandPromptPhpDocumentorToolStripMenuItem.Click += new System.EventHandler(this.CommandPromptPhpDocumentorToolStripMenuItemClick);
+			// 
+			// sSLToolStripMenuItem
+			// 
+			this.sSLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.generateCertificateToolStripMenuItem,
+									this.deleteCertificateToolStripMenuItem});
+			this.sSLToolStripMenuItem.Name = "sSLToolStripMenuItem";
+			this.sSLToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+			this.sSLToolStripMenuItem.Text = "SSL";
+			// 
+			// generateCertificateToolStripMenuItem
+			// 
+			this.generateCertificateToolStripMenuItem.Name = "generateCertificateToolStripMenuItem";
+			this.generateCertificateToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+			this.generateCertificateToolStripMenuItem.Text = "Generate Certificate";
+			this.generateCertificateToolStripMenuItem.Click += new System.EventHandler(this.GenerateCertificateToolStripMenuItemClick);
+			// 
+			// deleteCertificateToolStripMenuItem
+			// 
+			this.deleteCertificateToolStripMenuItem.Name = "deleteCertificateToolStripMenuItem";
+			this.deleteCertificateToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+			this.deleteCertificateToolStripMenuItem.Text = "Delete Certificate";
+			this.deleteCertificateToolStripMenuItem.Click += new System.EventHandler(this.DeleteCertificateToolStripMenuItemClick);
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(188, 6);
+			// 
+			// viewScriptFilesToolStripMenuItem
+			// 
+			this.viewScriptFilesToolStripMenuItem.Name = "viewScriptFilesToolStripMenuItem";
+			this.viewScriptFilesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+			this.viewScriptFilesToolStripMenuItem.Text = "View Script Files";
+			this.viewScriptFilesToolStripMenuItem.Click += new System.EventHandler(this.ViewScriptFilesToolStripMenuItemClick);
+			// 
+			// removeBatchFilesToolStripMenuItem
+			// 
+			this.removeBatchFilesToolStripMenuItem.Name = "removeBatchFilesToolStripMenuItem";
+			this.removeBatchFilesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+			this.removeBatchFilesToolStripMenuItem.Text = "Remove Batch Files";
+			this.removeBatchFilesToolStripMenuItem.Click += new System.EventHandler(this.RemoveBatchFilesToolStripMenuItemClick);
 			// 
 			// aboutToolStripMenuItem
 			// 
@@ -437,16 +692,16 @@ namespace SSWamp
 			this.surfStackWebsiteToolStripMenuItem.Text = "SurfStack GitHub";
 			this.surfStackWebsiteToolStripMenuItem.Click += new System.EventHandler(this.SurfStackWebsiteToolStripMenuItemClick);
 			// 
-			// btnBrowseMain
+			// btnBrowseHTTP
 			// 
-			this.btnBrowseMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.btnBrowseMain.Location = new System.Drawing.Point(149, 139);
-			this.btnBrowseMain.Name = "btnBrowseMain";
-			this.btnBrowseMain.Size = new System.Drawing.Size(131, 23);
-			this.btnBrowseMain.TabIndex = 5;
-			this.btnBrowseMain.Text = "Browse Main Page";
-			this.btnBrowseMain.UseVisualStyleBackColor = true;
-			this.btnBrowseMain.Click += new System.EventHandler(this.BtnBrowseMainClick);
+			this.btnBrowseHTTP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.btnBrowseHTTP.Location = new System.Drawing.Point(115, 139);
+			this.btnBrowseHTTP.Name = "btnBrowseHTTP";
+			this.btnBrowseHTTP.Size = new System.Drawing.Size(98, 23);
+			this.btnBrowseHTTP.TabIndex = 5;
+			this.btnBrowseHTTP.Text = "Browse HTTP";
+			this.btnBrowseHTTP.UseVisualStyleBackColor = true;
+			this.btnBrowseHTTP.Click += new System.EventHandler(this.BtnBrowseMainClick);
 			// 
 			// gbStatus
 			// 
@@ -559,13 +814,37 @@ namespace SSWamp
 			this.cMySQL.Size = new System.Drawing.Size(13, 13);
 			this.cMySQL.TabIndex = 3;
 			// 
+			// btnBrowseHTTPS
+			// 
+			this.btnBrowseHTTPS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.btnBrowseHTTPS.Location = new System.Drawing.Point(218, 139);
+			this.btnBrowseHTTPS.Name = "btnBrowseHTTPS";
+			this.btnBrowseHTTPS.Size = new System.Drawing.Size(98, 23);
+			this.btnBrowseHTTPS.TabIndex = 8;
+			this.btnBrowseHTTPS.Text = "Browse HTTPS";
+			this.btnBrowseHTTPS.UseVisualStyleBackColor = true;
+			this.btnBrowseHTTPS.Click += new System.EventHandler(this.BtnBrowseHTTPSClick);
+			// 
+			// forceKillApplicationsToolStripMenuItem
+			// 
+			this.forceKillApplicationsToolStripMenuItem.Name = "forceKillApplicationsToolStripMenuItem";
+			this.forceKillApplicationsToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+			this.forceKillApplicationsToolStripMenuItem.Text = "Force Kill Applications";
+			this.forceKillApplicationsToolStripMenuItem.Click += new System.EventHandler(this.ForceKillApplicationsToolStripMenuItemClick);
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(188, 6);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(431, 174);
+			this.Controls.Add(this.btnBrowseHTTPS);
 			this.Controls.Add(this.gbStatus);
-			this.Controls.Add(this.btnBrowseMain);
+			this.Controls.Add(this.btnBrowseHTTP);
 			this.Controls.Add(this.btnExit);
 			this.Controls.Add(this.btnStartStop);
 			this.Controls.Add(this.msTop);
@@ -582,6 +861,37 @@ namespace SSWamp
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem forceKillApplicationsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+		private System.Windows.Forms.ToolStripMenuItem commandPromptPhpDocumentorToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem initialSetupPHPDocumentorToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem phpDocumentorToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem uninstallComposerToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem uninstallPHPUnitToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem uninstallPearToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem commandPromptPearToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem initialPearSetupToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem pEARToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem deleteCertificateToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem generateCertificateToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem sSLToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem initialPHPUnitSetupToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem pHPUnitCommandPromptToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem pHPUnitToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem viewScriptFilesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem removeBatchFilesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private System.Windows.Forms.ToolStripMenuItem commandPromptToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem updateDependenciesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem installDependenciesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem installComposerToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem composerToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem sessionsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem documentsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem appConfigurationsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem webRootPublicToolStripMenuItem;
+		private System.Windows.Forms.Button btnBrowseHTTPS;
 		private System.Windows.Forms.ToolStripMenuItem memcachedToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem cacheToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem mongoDBToolStripMenuItem;
@@ -597,7 +907,7 @@ namespace SSWamp
 		private System.Windows.Forms.Label cMySQL;
 		private System.Windows.Forms.Label cMemcached;
 		private System.Windows.Forms.GroupBox gbStatus;
-		private System.Windows.Forms.Button btnBrowseMain;
+		private System.Windows.Forms.Button btnBrowseHTTP;
 		private System.Windows.Forms.ToolStripMenuItem surfStackWebsiteToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem licensedUnderToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem versionToolStripMenuItem;

@@ -19,7 +19,9 @@ BEGIN {
     serversslport = ARGV[5];
     serverroot = ARGV[6];
     sourceroot = ARGV[7];
+    serverdocroot = ARGV[8];
 
+    delete ARGV[8];
     delete ARGV[7];
     delete ARGV[6];
     delete ARGV[5];
@@ -53,6 +55,7 @@ BEGIN {
     print " ServerPort    = " serverport >tstfl;
     print " ServerSslPort = " serversslport >tstfl;
     print " ServerRoot    = " serverroot >tstfl;
+    print " ServerDocRoot = " serverdocroot >tstfl;
 
     filelist["httpd.conf"] = "httpd.conf.in";
     filelist["httpd-autoindex.conf"] = "httpd-autoindex.conf.in";
@@ -173,7 +176,7 @@ BEGIN {
           print "#LoadModule remoteip_module modules/mod_remoteip.so" > dstfl;
           print "#LoadModule request_module modules/mod_request.so" > dstfl;
           print "#LoadModule reqtimeout_module modules/mod_reqtimeout.so" > dstfl;
-          print "#LoadModule rewrite_module modules/mod_rewrite.so" > dstfl;
+          print "LoadModule rewrite_module modules/mod_rewrite.so" > dstfl;
           print "#LoadModule sed_module modules/mod_sed.so" > dstfl;
           print "#LoadModule session_module modules/mod_session.so" > dstfl;
           print "#LoadModule session_cookie_module modules/mod_session_cookie.so" > dstfl;
@@ -184,7 +187,7 @@ BEGIN {
           print "#LoadModule slotmem_shm_module modules/mod_slotmem_shm.so" > dstfl;
           print "#LoadModule socache_dbm_module modules/mod_socache_dbm.so" > dstfl;
           print "#LoadModule socache_memcache_module modules/mod_socache_memcache.so" > dstfl;
-          print "#LoadModule socache_shmcb_module modules/mod_socache_shmcb.so" > dstfl;
+          print "LoadModule socache_shmcb_module modules/mod_socache_shmcb.so" > dstfl;
           print "#LoadModule speling_module modules/mod_speling.so" > dstfl;
           print "#LoadModule ssl_module modules/mod_ssl.so" > dstfl;
           print "#LoadModule status_module modules/mod_status.so" > dstfl;
@@ -202,7 +205,7 @@ BEGIN {
         gsub( /@exp_cgidir@/,     serverroot "/cgi-bin" );
         gsub( /@exp_sysconfdir@/, serverroot "/conf" );
         gsub( /@exp_errordir@/,   serverroot "/error" );
-        gsub( /@exp_htdocsdir@/,  serverroot "/htdocs" );
+        gsub( /@exp_htdocsdir@/,  serverdocroot );
         gsub( /@exp_iconsdir@/,   serverroot "/icons" );
         gsub( /@exp_manualdir@/,  serverroot "/manual" );
         gsub( /@exp_runtimedir@/, serverroot "/logs" );

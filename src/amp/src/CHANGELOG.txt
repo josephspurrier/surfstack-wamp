@@ -1,3 +1,13 @@
+SurfStack WAMP v2.0.4.0 (2014-01-26)
+---------------------------------------
+* Added force shutdown option
+* Added support for Composer, PHPUnit, PEAR, phpDocumentor
+* Added support for SSL for Apache and Nginx
+* Added SSL certificate generation scripts
+* Added a Show Command Prompt option to aid debugging
+* Added menu items to easy folder navigation
+* Added php_imap.dll to both versions of PHP
+
 SurfStack WAMP v2.0.3.0 (2014-01-06)
 ---------------------------------------
 * Added graceful shutdown messagebox
