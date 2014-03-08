@@ -1,10 +1,10 @@
 @ECHO OFF
 
-SET WEBDIR=#WEBDIR#
+SET WEBDIR=#WEBDIR#\..\private
 SET PHPDIRTS=#PHPDIRTS#
 SET PHPDIRNTS=#PHPDIRNTS#
-SET VENDIR=#WEBDIR#\vendor
-SET PHPUNITDIR=#WEBDIR#\vendor\phpunit\phpunit
+SET VENDIR=#WEBDIR#\..\private\vendor
+SET PHPUNITDIR=#WEBDIR#\..\private\vendor\phpunit\phpunit
 
 SET PHP="%PHPDIRTS%\php.exe"
 SET PHPUNIT="%PHPDIRTS%\phpunit.phar"

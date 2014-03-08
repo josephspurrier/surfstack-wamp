@@ -8,6 +8,9 @@ SET PHP="%PHPDIRTS%\php.exe"
 SET COMP="%PHPDIRTS%\composer.phar"
 SET LOCK="%WEBDIR%\composer.lock"
 
+SET SVNDIR=#PHPDIRTS#\..\svn
+SET PATH=%PATH%;%SVNDIR%
+
 CD "%WEBDIR%"
 
 REM IF EXIST "%WEBDIR%\composer.lock" ( DEL "%WEBDIR%\composer.lock" /F /Q )
