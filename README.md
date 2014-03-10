@@ -1,5 +1,16 @@
 SurfStack WAMP
 ==============
+Welcome! You've stumbled upon one of the quickest ways to get a full HTML and 
+PHP web development environment up and running in seconds on a Windows machine.
+
+No installation required. Just download, extract, and run SSWamp.exe to gain
+access to the most widely used applications on the web.
+
+You deserve a suite of tools that works as efficiently as you do so we've
+designed a rock solid environment for use on your next endeavour.
+
+Screenshots are available in the [Wiki](https://github.com/josephspurrier/surfstack-wamp/wiki/SurfStack-WAMP-Screenshots).
+
 SurfStack WAMP allows HTML websites and PHP applications to run on a Windows
 computer. SurfStack WAMP is a package of open source software that includes:
 - Apache v2.4.7 (Web Server)
@@ -8,7 +19,9 @@ computer. SurfStack WAMP is a package of open source software that includes:
 - MongoDB v2.4.8 (Database)
 - PHP TS and NTS v5.5.7 (Web Language)
 - Memcached v1.2.6 (Object Caching System)
+- Adminer v4.0.3 (Database Manager)
 - Subversion v1.8.5 (Version Control System)
+- msysGit Net Install v1.9.0 (Version Control System)
 
 One-click setup of popular PHP tools:
 - Composer
@@ -16,11 +29,12 @@ One-click setup of popular PHP tools:
 - PEAR
 - phpDocumentor
 
-No installation required. Just extract and run SSWamp.exe.
+Download
+------------
+The latest release is [v1.0.6](https://github.com/josephspurrier/surfstack-wamp/releases/tag/1.0.6) (2014/03/09).
 
-The current release is [v1.0.5](https://github.com/josephspurrier/surfstack-wamp/releases/tag/1.0.5) (2014/01/26).
-
-Screenshots are available in the [Wiki](https://github.com/josephspurrier/surfstack-wamp/wiki/SurfStack-WAMP-Screenshots).
+The repository does not contain any binaries. Be sure to download the latest
+release which includes the binaries for Apache, PHP, etc.
 
 Instructions
 ------------
@@ -53,19 +67,6 @@ Folders
 - \amp\doc: contains CHANGELOG, LICENSE, README
 - \amp\src: contains C# source code for SSWamp.exe
 - \webroot\localhost\public: default location for all web files 
-
-Included Software
------------------
-- Adminer
-- Apache
-- AWK
-- Memcached
-- MongoDB
-- MySQL
-- Nginx
-- PEAR
-- PHP
-- SSWamp.exe
 
 Notes
 -----

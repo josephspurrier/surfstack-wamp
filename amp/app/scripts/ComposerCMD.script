@@ -1,0 +1,20 @@
+@ECHO OFF
+
+SET WEBDIR=#LOCALHOSTDIR#\private
+SET PHPDIRTS=#APPDIR#\phpts
+SET PHPDIRNTS=#APPDIR#\phpnts
+
+SET SVNDIR=#APPDIR#\svn
+SET GITDIR=#APPDIR#\git\bin
+SET PATH=%PATH%;%SVNDIR%;%GITDIR%
+
+SET PHP="%PHPDIRTS%\php.exe"
+SET COMP="%PHPDIRTS%\composer.phar"
+
+CD "%WEBDIR%"
+
+ECHO Usage:
+ECHO %%PHP%% %%COMP%% update --no-dev --prefer-dist -v
+ECHO.
+
+CMD

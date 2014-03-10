@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit bootstrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="SurfStack Test Suite">
+            <directory>vendor/josephspurrier/surfstack-access-control/tests/</directory>
+            <directory>vendor/josephspurrier/surfstack-dispatching/tests/</directory>
+            <directory>vendor/josephspurrier/surfstack-error-handling/tests/</directory>
+            <directory>vendor/josephspurrier/surfstack-filtering/tests/</directory>
+            <directory>vendor/josephspurrier/surfstack-routing/tests/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

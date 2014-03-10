@@ -1,0 +1,15 @@
+{
+   "name": "josephspurrier/surfstack-wamp",
+    "description": "Preinstalled Windows package with Apache, Nginx, MySQL, MongoDB, PHP, and Memcached",
+    "keywords": ["WAMP"],
+    "homepage": "https://github.com/josephspurrier/surfstack-wamp",
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Joseph Spurrier",
+            "homepage": "http://josephspurrier.com"
+        }
+    ],
+    "version": "1.0.6"
+}

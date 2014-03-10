@@ -1,0 +1,18 @@
+@ECHO OFF
+
+SET WEBDIR=#LOCALHOSTDIR#\private
+SET PHPDIRTS=#APPDIR#\phpts
+SET PHPDIRNTS=#APPDIR#\phpnts
+
+SET SVNDIR=#APPDIR#\svn
+SET GITDIR=#APPDIR#\git\bin
+SET PATH=%PATH%;%SVNDIR%;%GITDIR%
+
+CD "%WEBDIR%"
+
+"%PHPDIRTS%\php.exe" "%PHPDIRTS%\composer.phar" update --prefer-dist -v
+
+ECHO.
+ECHO Done
+
+PAUSE

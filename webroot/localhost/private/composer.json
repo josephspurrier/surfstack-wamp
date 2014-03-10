@@ -1,0 +1,11 @@
+{
+    "require": {
+        "josephspurrier/surfstack-coding-standards": "1.*"
+    },
+    "repositories": [
+       {
+         "type": "vcs",
+         "url": "https://github.com/josephspurrier/surfstack-coding-standards"
+       }
+    ]
+}

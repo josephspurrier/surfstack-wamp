@@ -1,0 +1,14 @@
+@ECHO OFF
+
+SET PHPDIRTS=#APPDIR#\phpts
+SET PHPDIRNTS=#APPDIR#\phpnts
+
+SET PEAR="pear" -c pear.ini
+
+ECHO Usage:
+ECHO %%PEAR%% version
+ECHO.
+
+CD "%PHPDIRTS%"
+
+CMD
