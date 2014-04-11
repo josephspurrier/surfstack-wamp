@@ -1,3 +1,7 @@
+SurfStack WAMP v1.0.7 (2014-04-11)
+----------------------------------
+* Updated SSWamp.exe and scripts to use parent of public folder instead of private
+
 SurfStack WAMP v1.0.6 (2014-03-09)
 ----------------------------------
 * Updated SSWamp.exe menus and script support

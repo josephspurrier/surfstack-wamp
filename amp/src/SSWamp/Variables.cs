@@ -28,7 +28,6 @@ namespace SSWamp
 		public string strWebLogsFolderPath;
 		public string strLocalhostFolderPath;
 		public string strLocalhostPublicFolderPath;
-		public string strLocalhostPrivateFolderPath;
 		public string strScriptsFolderPath;
 		public string strLogFolderPath;
 		
@@ -104,15 +103,14 @@ namespace SSWamp
             strDocsFolderPath = Path.Combine(strAMPFolderPath, "doc");
             strLocalhostFolderPath = Path.Combine(strWebrootFolderPath, "localhost");
             strLocalhostPublicFolderPath = Path.Combine(strLocalhostFolderPath, "public");
-            strLocalhostPrivateFolderPath = Path.Combine(strLocalhostFolderPath, "private");
             strScriptsFolderPath = Path.Combine(strAppFolderPath, "scripts");
-            strLogFolderPath = Path.Combine(strLocalhostPrivateFolderPath, "log");
+            strLogFolderPath = Path.Combine(strLocalhostFolderPath, "log");
             
             // Composer
-            strComposerFilePath = Path.Combine(strLocalhostPrivateFolderPath, "composer.json");
+            strComposerFilePath = Path.Combine(strLocalhostFolderPath, "composer.json");
             
             // PHPUnit
-            strPHPUnitFilePath = Path.Combine(strLocalhostPrivateFolderPath, "phpunit.xml.dist");
+            strPHPUnitFilePath = Path.Combine(strLocalhostFolderPath, "phpunit.xml.dist");
             
 			// PHP
 			strPHPTSFolderPath = Path.Combine(strAppFolderPath, "phpts");

@@ -593,7 +593,7 @@ namespace SSWamp
 		
 		private void WebPrivateToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			simpleOpen(var.strLocalhostPrivateFolderPath);
+            simpleOpen(var.strLocalhostFolderPath);
 		}
 		
 		private void PHPLogToolStripMenuItemClick(object sender, EventArgs e)

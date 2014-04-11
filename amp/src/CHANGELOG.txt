@@ -1,3 +1,7 @@
+SurfStack WAMP v2.0.6.0 (2014-04-11)
+---------------------------------------
+* Removed private folder, changed to parent directory of public folder
+
 SurfStack WAMP v2.0.5.0 (2014-03-09)
 ---------------------------------------
 * Added menu items for editing composer.json and phpunit.xml.dist

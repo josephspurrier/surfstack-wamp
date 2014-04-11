@@ -31,7 +31,7 @@ One-click setup of popular PHP tools:
 
 Download
 ------------
-The latest release is [v1.0.6](https://github.com/josephspurrier/surfstack-wamp/releases/tag/1.0.6) (2014/03/09).
+The latest release is [v1.0.7](https://github.com/josephspurrier/surfstack-wamp/releases/tag/1.0.7) (2014/04/11).
 
 The repository does not contain any binaries. Be sure to download the latest
 release which includes the binaries for Apache, PHP, etc.

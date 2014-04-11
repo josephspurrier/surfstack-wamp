@@ -1,10 +1,10 @@
 <?php
 
 // If the Composer autoloader is found
-if (is_file(__DIR__.'/../private/vendor/autoload.php'))
+if (is_file(__DIR__.'/../vendor/autoload.php'))
 {
     // Load the Composer autoloader
-    require_once __DIR__.'/../private/vendor/autoload.php';
+    require_once __DIR__.'/../vendor/autoload.php';
 }
 
 // ****************************************************************************
