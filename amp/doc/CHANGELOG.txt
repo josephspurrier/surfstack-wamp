@@ -1,3 +1,22 @@
+SurfStack WAMP v2.1.0 (2014-11-23)
+----------------------------------
+* Added php_phalcon.dll (ts & nts) v1.3.4
+* Added Phalcon and phpdbg scripts
+* Updated to Adminer v4.1.0
+* Updated to Apache v2.4.10
+* Updated to Git v1.9.4
+* Updated to Memcached v1.4.4
+* Updated to MongoDB v2.6.5
+* Updated to MySQL v5.6.21
+* Updated to Nginx v1.7.7
+* Updated to PHP NTS v5.6.0
+* Updated to PHP TS v5.6.0
+* Updated to Subversion v1.8.10
+* Updated php_memcache.dll (ts & nts) to v3.0.8
+* Updated php_mongo.dll (ts & nts) to v1.5.8
+* Updated php_outh.dll (ts & nts) to v1.2.3
+* Updated php_xdebug.dll (ts & nts) to v2.2.6
+
 SurfStack WAMP v1.0.7 (2014-04-11)
 ----------------------------------
 * Updated SSWamp.exe and scripts to use parent of public folder instead of private

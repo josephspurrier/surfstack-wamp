@@ -884,5 +884,27 @@ namespace SSWamp
 		{
 			simpleOpen("notepad", var.strPHPUnitFilePath);
 		}
+		private void PhpdbgCommandPromptToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			string strScript = Path.Combine(var.strScriptsFolderPath, "PHPDBGCMD.script");
+			string strBatch = Path.Combine(var.strScriptsFolderPath, "PHPDBGCMD.cmd");
+			string strContent = File.ReadAllText(strScript);
+			
+			strContent = convertGlobals(strContent);
+			
+			File.WriteAllText(strBatch, strContent);
+			cmdOpen(strBatch);
+		}
+		void PhalconCommandPromptToolStripMenuItem1Click(object sender, EventArgs e)
+		{
+			string strScript = Path.Combine(var.strScriptsFolderPath, "PhalconCMD.script");
+			string strBatch = Path.Combine(var.strScriptsFolderPath, "PhalconCMD.cmd");
+			string strContent = File.ReadAllText(strScript);
+			
+			strContent = convertGlobals(strContent);
+			
+			File.WriteAllText(strBatch, strContent);
+			cmdOpen(strBatch);
+		}
 	}
 }

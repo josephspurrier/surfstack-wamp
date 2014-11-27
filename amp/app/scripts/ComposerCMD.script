@@ -11,10 +11,12 @@ SET PATH=%PATH%;%SVNDIR%;%GITDIR%
 SET PHP="%PHPDIRTS%\php.exe"
 SET COMP="%PHPDIRTS%\composer.phar"
 
+SET PATH=%PATH%;%PHPDIRTS%
+
 CD "%WEBDIR%"
 
 ECHO Usage:
-ECHO %%PHP%% %%COMP%% update --no-dev --prefer-dist -v
+ECHO php %%COMP%% update --no-dev --prefer-dist -v
 ECHO.
 
 CMD

@@ -68,13 +68,14 @@ namespace SSWamp
 			//PHPIniDir "C:/Users/Joe/Desktop/FusionLeaf_Stack_v0.4.9/app/php"
 			
 			string strSSLDLL = Path.Combine(var.strPHPTSFolderPath, "ssleay32.dll").Replace('\\','/');
+			string strSSLDLL2 = Path.Combine(var.strPHPTSFolderPath, "libsasl.dll").Replace('\\','/');
 			
 			string strApacheConfig = Path.Combine(var.strApacheFolderPath,@"conf\httpd.conf");
 			ArrayList alReplace = new ArrayList();
 			//alReplace.Add(new string[]{"#LoadModule rewrite_module", "LoadModule rewrite_module"});
 			alReplace.Add(new string[]{"#%PHPMODULE%", "LoadModule php5_module \""
 			              		+ Path.Combine(var.strPHPTSFolderPath,"php5apache2_4.dll").Replace('\\','/') + "\""});
-			alReplace.Add(new string[]{"#%SSLDLL%", "LoadFile \""+ strSSLDLL +"\""});
+			alReplace.Add(new string[]{"#%SSLDLL%", "LoadFile \""+ strSSLDLL +"\"" + Environment.NewLine + "LoadFile \""+ strSSLDLL2 +"\""});
 			//alReplace.Add(new string[]{strGuessRoot, strRealRoot});
 			alReplace.Add(new string[]{"AllowOverride None", "AllowOverride All"});
 			alReplace.Add(new string[]{"#%ERRDOC404%", "ErrorDocument 404 \"404 not found\""});

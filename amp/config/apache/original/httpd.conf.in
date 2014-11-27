@@ -17,6 +17,12 @@
 # with ServerRoot set to "/usr/local/apache2" will be interpreted by the
 # server as "/usr/local/apache2/logs/access_log", whereas "/logs/access_log" 
 # will be interpreted as '/logs/access_log'.
+#
+# NOTE: Where filenames are specified, you must use forward slashes
+# instead of backslashes (e.g., "c:/apache" instead of "c:\apache").
+# If a drive letter is omitted, the drive on which httpd.exe is located
+# will be used by default.  It is recommended that you always supply
+# an explicit drive letter in absolute paths to avoid confusion.
 
 #
 # ServerRoot: The top of the directory tree under which the server's
@@ -98,7 +104,7 @@ Group daemon
 # e-mailed.  This address appears on some server-generated pages, such
 # as error documents.  e.g. admin@your-domain.com
 #
-ServerAdmin you@example.com
+ServerAdmin admin@example.com
 
 #
 # ServerName gives the name and port that the server uses to identify itself.

@@ -8,10 +8,12 @@ SET PHPDIRNTS=#APPDIR#\phpnts
 SET PHP="%PHPDIRTS%\php.exe"
 SET PHPDOC="%PHPDIRTS%\phpDocumentor.phar"
 
+SET PATH=%PATH%;%PHPDIRTS%
+
 CD "%WEBDIR%"
 
 ECHO Usage:
-ECHO %%PHP%% %%PHPDOC%% -d "%%PRIVATEDIR%%\vendor\SurfStack" -t "%%WEBDIR%%\doc"
+ECHO php %%PHPDOC%% -d "%%PRIVATEDIR%%\vendor\SurfStack" -t "%%WEBDIR%%\doc"
 ECHO.
 
 CMD

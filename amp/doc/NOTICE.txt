@@ -36,3 +36,9 @@ MariaDB Foundation (http://mariadb.org).
 
 This product includes software developed by
 Git for Windows (http://msysgit.github.io).
+
+This product includes software developed by
+Phalcon (http://phalconphp.com).
+
+This product includes software developed by
+Justin Hileman (http://genghisapp.com).

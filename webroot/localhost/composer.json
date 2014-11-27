@@ -1,6 +1,7 @@
 {
     "require": {
-        "josephspurrier/surfstack-coding-standards": "1.*"
+        "josephspurrier/surfstack-coding-standards": "1.*",
+        "phalcon/devtools": "dev-master"
     },
     "repositories": [
        {

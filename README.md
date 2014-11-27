@@ -13,25 +13,34 @@ Screenshots are available in the [Wiki](https://github.com/josephspurrier/surfst
 
 SurfStack WAMP allows HTML websites and PHP applications to run on a Windows
 computer. SurfStack WAMP is a package of open source software that includes:
-- Apache v2.4.7 (Web Server)
-- Nginx v1.4.4 (Web Server)
-- MySQL v5.6.15 (Database)
-- MongoDB v2.4.8 (Database)
-- PHP TS and NTS v5.5.7 (Web Language)
-- Memcached v1.2.6 (Object Caching System)
-- Adminer v4.0.3 (Database Manager)
-- Subversion v1.8.5 (Version Control System)
-- msysGit Net Install v1.9.0 (Version Control System)
+- Apache v2.4.10 (Web Server) (10-20-2014 32-bit VC11)
+- Nginx v1.7.7 (Web Server) (10-28-2014)
+- MySQL v5.6.21 (Relational Database) (09-23-2014 32-bit)
+- MongoDB v2.6.5 (Document Database) (10-08-2014 64-bit)
+- PHP TS and NTS v5.6.0 (Web Language) (08-28-2014)
+- Memcached v1.4.4 (Object Caching System) (12-09-2009)
+- Adminer v4.1.0 (MySQL Database Manager) (04-18-2014)
+- Genghis v2.3.11 (MongoDB Database Manager) (03-20-2014)
+- Subversion v1.8.10 (Version Control System) (08-11-2014) 
+- msysGit Net Install v1.9.4 (Version Control System) (09-29-2014 Preview)
 
-One-click setup of popular PHP tools:
-- Composer
-- PHPUnit
-- PEAR
-- phpDocumentor
+One-click setup and usage of popular PHP tools:
+- Composer (PHP Dependency Manager) (Downloads and installs the latest version)
+- PHPUnit (PHP Test Framework) (Downloads and installs the latest version)
+- PEAR (PHP Extension and Application Repository) (Downloads and installs the latest version)
+- phpDocumentor (PHP Documentation Generator) (Downloads and installs the latest version)
+- phpdbg (PHP Debugger) (Command prompt)
+- Phalcon Tools (Command Line Utility) (Command prompt)
+
+PHP extensions preloaded:
+- Phalcon v1.3.4 (High Performance PHP Framework) (10-29-2014 32-bit)
+- Xdebug v2.2.6 (Debugger and Profiler) (11-15-2014 32-bit)
+- Mongo v1.5.6 (MongoDB Driver) (11-11-2014 32-bit)
+- OAuth v1.2.3 (Authorization Bindings) (04-10-2014 32-bit)
 
 Download
 ------------
-The latest release is [v1.0.7](https://github.com/josephspurrier/surfstack-wamp/releases/tag/1.0.7) (2014/04/11).
+The latest release is [v2.1.0](https://github.com/josephspurrier/surfstack-wamp/releases/tag/2.1.0) (11-27-2014).
 
 The repository does not contain any binaries. Be sure to download the latest
 release which includes the binaries for Apache, PHP, etc.
@@ -78,8 +87,8 @@ Notes
 Compatibility
 -------------
 - The \amp\app folder holds official binaries so the contents of each folder
-can be replaced with binaries downloaded from original vendor (manually
-configuration may need to take place after replacing the files)
+can be replaced with binaries downloaded from original vendor (PHP extensions
+must be updated as well to match the config)
 - The \amp\config folder holds custom configurations for the applications
 - Each configuration has variables which are replaced by values provided by
 SSWamp.exe

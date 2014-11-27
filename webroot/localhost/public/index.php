@@ -1,5 +1,11 @@
 <?php
 
+// Simulate the Dev PHP.ini
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+ini_set('track_errors', '1');
+
 // If the Composer autoloader is found
 if (is_file(__DIR__.'/../vendor/autoload.php'))
 {
@@ -48,6 +54,5 @@ catch (MongoConnectionException $e)
 }
 
 echo nl2br(PHP_EOL);
-echo '<a href="/adminer.php">Click here to open Adminer for MySQL and MongoDB.</a>'.nl2br(PHP_EOL);
-
-?>
+echo '<a href="/adminer.php">Click here to open Adminer for MySQL.</a>'.nl2br(PHP_EOL);
+echo '<a href="/genghis">Click here to open Genghis for MongoDB.</a>'.nl2br(PHP_EOL);

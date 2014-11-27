@@ -1,0 +1,19 @@
+@ECHO OFF
+
+SET WEBDIR=#LOCALHOSTDIR#
+SET PHPDIRTS=#APPDIR#\phpts
+SET PHPDIRNTS=#APPDIR#\phpnts
+SET VENDIR=#LOCALHOSTDIR#\vendor
+
+SET PHP="%PHPDIRTS%\php.exe"
+SET PHPDBG="%PHPDIRTS%\phpdbg.exe"
+
+SET PATH=%PATH%;%PHPDIRTS%;%VENDIR%\phalcon\devtools
+
+CD "%WEBDIR%\public"
+
+ECHO Usage:
+ECHO phalcon commands
+ECHO.
+
+CMD

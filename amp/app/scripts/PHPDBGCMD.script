@@ -6,14 +6,14 @@ SET PHPDIRNTS=#APPDIR#\phpnts
 SET VENDIR=#LOCALHOSTDIR#\vendor
 
 SET PHP="%PHPDIRTS%\php.exe"
-SET PHPUNIT="%PHPDIRTS%\phpunit.phar"
+SET PHPDBG="%PHPDIRTS%\phpdbg.exe"
 
 SET PATH=%PATH%;%PHPDIRTS%
 
-CD "%WEBDIR%"
+CD "%WEBDIR%\public"
 
 ECHO Usage:
-ECHO php %%PHPUNIT%% --bootstrap "%%VENDIR%%\monolog\monolog\tests\bootstrap.php" "%%VENDIR%%\monolog\monolog\tests\Monolog\Handler\MongoDBHandlerTest.php"
+ECHO phpdbg "%%WEBDIR%%\index.php"
 ECHO.
 
 CMD

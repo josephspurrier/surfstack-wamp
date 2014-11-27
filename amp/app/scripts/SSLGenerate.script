@@ -5,7 +5,7 @@ REM Source: http://rubayathasan.com/tutorial/apache-ssl-on-windows/
 SET BINDIR=#APPDIR#\apache\bin
 SET OPENSSL=#APPDIR#\apache\bin\openssl.exe
 SET CONFDIR=#CONFDIR#
-REM SET OPENSSL_CONF=#CONFDIR#\openssl.cnf
+SET OPENSSL_CONF=#CONFDIR#\openssl.cnf
 
 CD %CONFDIR%
 

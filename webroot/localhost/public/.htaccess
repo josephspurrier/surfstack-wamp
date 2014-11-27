@@ -1,0 +1,14 @@
+RewriteEngine On
+RewriteBase /
+
+# Source: http://ellislab.com/expressionengine/user-guide/urls/remove_index.php.html
+# Removes index.php from ExpressionEngine URLs
+#RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
+#RewriteRule (.*?)index\.php/*(.*) /$1$2 [R=301,NE,L]
+
+# Directs all web requests through the site index file
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ index.php?$1 [QSA,L]
+#RewriteRule ^(.*)$ index.php [QSA,L]
+RewriteRule ^(.*)$ /index.php [L]

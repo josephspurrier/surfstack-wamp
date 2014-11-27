@@ -1,3 +1,9 @@
+SurfStack WAMP v2.0.7.0 (2014-11-24)
+---------------------------------------
+* Added file to Apache config file
+* Added phpdbg script
+* Added Phalcon script
+
 SurfStack WAMP v2.0.6.0 (2014-04-11)
 ---------------------------------------
 * Removed private folder, changed to parent directory of public folder
