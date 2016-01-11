@@ -231,6 +231,29 @@ namespace SSWamp
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
 		}
+
+		private void MainForm_Resize(object sender, EventArgs e)
+		{
+		     notifyIcon1.BalloonTipTitle = "Minimized";
+		     notifyIcon1.BalloonTipText = "You can access SurfStack from the system tray.";
+
+		     if (FormWindowState.Minimized == this.WindowState)
+		     {
+		          notifyIcon1.Visible = true;
+		          // notifyIcon1.ShowBalloonTip(200);
+		          this.Hide();    
+		     }
+		     else if (FormWindowState.Normal == this.WindowState)
+		     {
+		          notifyIcon1.Visible = false;
+		     }
+		}
+
+		private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+		     this.Show();
+		     this.WindowState = FormWindowState.Normal;
+		}
 		
 		private void MainFormLoad(object sender, EventArgs e)
 		{
