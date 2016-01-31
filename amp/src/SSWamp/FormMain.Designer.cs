@@ -37,6 +37,9 @@ namespace SSWamp
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+			this.components = new System.ComponentModel.Container();
+			this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(new System.ComponentModel.Container());
+
 			this.btnStartStop = new System.Windows.Forms.Button();
 			this.btnExit = new System.Windows.Forms.Button();
 			this.msTop = new System.Windows.Forms.MenuStrip();
@@ -916,12 +919,22 @@ namespace SSWamp
 			this.btnBrowseHTTPS.Text = "Browse HTTPS";
 			this.btnBrowseHTTPS.UseVisualStyleBackColor = true;
 			this.btnBrowseHTTPS.Click += new System.EventHandler(this.BtnBrowseHTTPSClick);
+
+			// 
+			// notifyIcon1
+			// 
+			this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.notifyIcon1.Text = "SurfStack Wamp";
+			this.notifyIcon1.Visible = true;
+			this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(431, 174);
+			this.Resize += new System.EventHandler(this.MainForm_Resize);
 			this.Controls.Add(this.btnBrowseHTTPS);
 			this.Controls.Add(this.gbStatus);
 			this.Controls.Add(this.btnBrowseHTTP);
@@ -943,6 +956,7 @@ namespace SSWamp
 			this.PerformLayout();
 
 		}
+		private System.Windows.Forms.NotifyIcon notifyIcon1;
 		private System.Windows.Forms.ToolStripMenuItem editPhpunitxmldistToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem editComposerjsonToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem pHPLogToolStripMenuItem;
