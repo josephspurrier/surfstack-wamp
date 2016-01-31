@@ -1,3 +1,7 @@
+SurfStack WAMP v2.2.0 (2016-01-31)
+----------------------------------
+* Updated SSWamp.exe to minimize to system tray (Boycce)
+
 SurfStack WAMP v2.1.0 (2014-11-23)
 ----------------------------------
 * Added php_phalcon.dll (ts & nts) v1.3.4
